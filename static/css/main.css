@@ -1,0 +1,16 @@
+/* setup */ 
+.service {margin-bottom:30px;}
+#main .product .product_div {width:200px;height:200px;margin-bottom:40px;margin-top:20px;}
+#main .product .product_div img {width:200px;height:200px;border : 1px solid #e4e4e4}
+#main .product .product_description {width:50%;height:20px;background-color: rgba(0,0,0,.6);color:white;position:relative;top:-20px;text-align:center}
+#main .product .product_description2 {width:50%;height:20px;background-color: rgba(0,0,0,.6);color:white;font-size:12pt;position:relative;top:-20px;text-align:center}
+#main .service_div img {width:200px;height:200px;border : 1px solid #e4e4e4}
+#main .service_div{width:200px;height:200px;}
+#main .repair_tag {width:50%;height:20px;background-color: rgba(0,0,0,.6);color:white;position:relative;top:-20px;text-align:center}
+#main .repair_tag {width:50%;height:20px;background-color: rgba(0,0,0,.6);color:white;font-size:12pt;position:relative;top:-20px;text-align:center}
+#main .main_photo {display:inline-block;width:1280px; height:400px;margin-bottom:20px;}
+#main .main_photo .catchphrase {margin-top:170px;}
+#main .main_photo .catchphrase p{color:white;font-weight:bold;font-size:13pt}
+#main .main_photo .catchphrase h1 {color:#f8d406;font-weight:bold;}
+body {background: url("/static/image/main_test.jpg") repeat-y}
+.footer {color:white}

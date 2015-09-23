@@ -1,0 +1,96 @@
+{% extends "menu.html" %}
+{% block content %}
+<head>
+    <meta charset="utf-8">
+    <title>Bootstrap, from Twitter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+		@import url("/static/css/bootstrap.css");
+		@import url("/static/css/bootstrap-responsive.css");
+	    @import url("/static/css/main.css");
+	</style>
+  </head>
+<div id="main" class="container">
+	  <div class="row">
+ 	  <div class="main_photo">
+ 	  	<div class="catchphoto span6">
+ 	    <img src="/static/image/main_kim_photo_second.jpg">
+ 	    </div>
+ 		<div class="catchphrase span6">
+	        <h1>40년 장인의 손길, 디딤입니다.</h1>
+	        <p>20년 구두를 만들었고, 20년 구두를 고쳐왔습니다.<br>
+	        	구두의 구두를 모르고 하는 단순한 수선과는 다릅니다.<br>
+	        	가죽과 구두에 대한 심도있는 노하우를 가지고<br> 고객님의 소중한 제품을 고쳐드립니다.
+	        </p>
+        </div>
+      </div>
+      </div>
+  	 <div class="row service">
+        <div class="span3 service_div">
+          <a href="#" role="button" data-toggle="modal"><img src="/static/image/main_shoes.png"></a>
+          <p><span class="repair_tag">남성구두수선</span></p>
+        </div>
+        <div class="span3 service_div">
+          <a href="#" role="button" data-toggle="modal"><img src="/static/image/main_highheel.png"></a>
+          <p><span class="repair_tag">여성구두수선</span></p>
+       </div>
+        <div class="span3 service_div">
+          <a href="#" role="button" data-toggle="modal"><img src="/static/image/main_bag.png"></a>
+          <div class="repair_tag">가방및가죽</div>
+        </div>
+        <div class="span3 service_div">
+          <a href="#" role="button" data-toggle="modal"><img src="/static/image/main_jordan.jpg"></a>
+          <div class="repair_tag">운동화 수선</div>
+        </div>
+        <div class="span3 service_div">
+          <a href="#" role="button" data-toggle="modal"><img src="/static/image/main_walker.png"></a>
+          <div class="repair_tag">워커 수선</div>
+        </div>
+     </div>
+  	<div class="product row">
+  		{%for r in result%}
+  		<div class="product_div span3">
+  			<a href="#myModal{{r.key}}" role="button" data-toggle="modal" ><img src="/show_image/{{r.key}}"></a>
+  			<div class="product_description">
+  			     {{r.price_str}}￦
+  			</div>
+  		</div>
+  		<div id="myModal{{r.key}}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-header">
+		    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		    <h3 id="myModalLabel">상품 상세보기</h3>
+		  </div>
+		  <div class="modal-body">
+		  	<div class="detail_photo">
+			  	{% if r.repre_img %}
+			  	<img src='/show_image2/{{r.key}}'>
+			  	{% else %}
+			  	{% endif %}
+		  	</div>
+		  	<div class="detail_photo">
+			  	{% if r.detail_img1 %}
+			  	<img src='/show_detail1/{{r.key}}'>
+			  	{% else %}
+			  	{% endif %}
+		  	</div>
+		  	<div class="detail_photo">
+			  	{% if r.detail_img2 %}
+			  	<img src='/show_detail2/{{r.key}}'>
+			  	{% else %}
+			  	{% endif %}
+		  	</div>
+		  	<div class="detail_photo">
+			  	{% if r.detail_img3 %}
+			  	<img src='/show_detail3/{{r.key}}'>
+			  	{% else %}
+			  	{% endif %}
+		  	</div>
+		  </div>
+		  <div class="modal-footer">
+		    <button class="btn" data-dismiss="modal" aria-hidden="true">닫기</button>
+		  </div>
+		</div>
+  		{% endfor %}
+  	</div>
+ </div>
+ {% endblock %}

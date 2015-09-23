@@ -1,0 +1,20 @@
+#sales {margin-left:70px;margin-top:20px;}
+#sales .product {display:inline-block;}
+#sales .product_inner_wrapper {float:left;width:300px;height:330px;margin:7px;margin-bottom:30px;}
+#sales .product_inner_wrapper .photo_wrapper {display:inline-block; width:980px;}
+#sales .product_inner_wrapper .photo {float:left;width:300px;height:300px;border:1px solid #e4e4e4}
+#sales .product_inner_wrapper .photo img {width:300px;height:300px;}
+#sales .product_inner_wrapper .product_des {text-align:center;}
+#sales .product_inner_wrapper .product_des .price {color:#639346;font-weight:bold}
+#sales .product_inner_wrapper .product_des .name {}
+#sales .description {display:inline-block;float:right;width:600px;}
+#sales .description th {width:150px;background-color: #f5f5f5;padding-left:10px;}
+#sales .description td {padding-left:10px;}
+#sales .description .des {height:80px;}
+#sales .description td {height:10px;}
+#sales .product .modal img {width:600px;height:400px;}
+#sales .outline {margin-top:30px;margin-left:10px;margin-bottom:30px;}
+#sales .product .detail_photo {margin:20px;}
+#sales .more {margin-top:20px;}
+#sales #more {}
+#sales .sales_more {width:45px;height:16px;font-size:10pt;text-align:center;vertical-align: middle;padding:5px;padding-top:7px;}

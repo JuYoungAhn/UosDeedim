@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+{% extends "menu.html" %}
+<meta charset="utf-8">
+<title>{{title}}</title>
+</head>
+<body>
+{% block content %}
+<style>
+body .container {width:980px}
+</style>
+<div class="container" id="banner">
+<h3>상품 수정</h3>
+</div>
+<div class="container" id="product_write">
+	<form action="/productUpdate" method="post" name="productUpdate" enctype='multipart/form-data'>
+	<input type="hidden" name="key" value="{{result.key}}">
+	<table class="table table-bordered">
+		<tr>
+		<th>이름</th>
+		<td><input type="text" name="name" value="{{result.name}}"></td>
+		</tr>
+		<tr>
+		<th>회사</th> 
+		<td><input type="text" name="company" value="{{result.company}}"></td>
+		</tr>
+		<tr>
+		<th>사이즈</th>
+		<td><input type="text" name="size" value="{{result.size}}"> <strong> 숫자만 입력! </strong></td>
+		</tr>
+		<tr>
+		<th>가격</th>
+		<td><input type="text" name="price" value="{{result.price}}"> <strong> 숫자만 입력! </strong></td>
+		</tr>
+		<tr>
+		<th>설명</th>
+		<td><textarea name="description">{{result.description}}</textarea></td>
+		</tr>
+		<tr>
+		<th>대표 이미지</th>
+		<td><input type="file" name="image"><img src="/show_image2/{{result.key}}"></td>
+		</tr>
+		<tr><th rowspan="4">디테일 이미지</th></tr>
+		<tr><td><input type="file" name="detail_img1"><img src="/detail_image1/{{result.key}}"></td></tr>
+		<tr><td><input type="file" name="detail_img2"><img src="/detail_image2/{{result.key}}"></td></tr>
+		<tr><td><input type="file" name="detail_img3"><img src="/detail_image3/{{result.key}}"></td></tr>
+		<tr>
+		<td colspan="2"><div class="pagination-centered"><input type="submit" value="등록"></div></td>
+		</tr>
+	</table>
+	</form>
+</div>
+{% endblock %}
+</body>
+</html>

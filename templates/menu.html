@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<Meta Http-Equiv="Content-Type" Content="text/html; charset=utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" > <!-- Ajax Ex10에서 오류나는것 때문에 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{title}}</title>
+<style>
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@import url("/static/css/bootstrap.css");
+@import url("/static/css/bootstrap-responsive.css");
+@import url("/static/css/menu.css");
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .brand img {width:60px;height:30px;}
+</style>
+</head>
+<div class="navbar navbar-inverse navbar-fixed-top">
+     <div class="navbar-inner">
+       <div class="container">
+         <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+         </button>
+         <a class="brand logo" href="/"><img src="/static/image/enactus_logo.png">Deedim</a>
+         <div class="nav-collapse collapse">
+           <ul class="nav">
+   			<li class="standard_li"><a href="/aboutUs">디딤소개</a>
+   			<li class="standard_li"><a href="/description">이용방법</a></li>
+			<li class="standard_li"><a href="/sales">구두판매</a></li>	
+   			<li class="standard_li"><a href="/boardList?menu_id=1">견적문의</a></li>
+   			<li class="standard_li"><a href="/boardList?menu_id=2">이용후기</a></li>
+   			<li class="standard_li"><a href="/boardList?menu_id=3">FAQ</a></li>
+   		</ul> 
+         </div><!--/.nav-collapse -->
+       </div>
+     </div>
+   </div>
+ <div class="empty">
+ </div>
+ <body>
+ {% block content %}
+ {% endblock %}
+  </body>
+ <div class="footer">
+	 <div class="container">
+	 	<div class="pagination-centered">
+	 	<strong>상호명</strong> : 디딤 &nbsp;&nbsp;<strong>대표자</strong> : 김종수
+	 	<br>주소  : 서울시 관악구 은천동 951-2번지&nbsp;&nbsp; 전화 : 010-3892-1902
+	 	<br> <strong>Copyright (c) 2015 All Rights Reserved.</strong>
+	 	</div>
+	 </div>
+ </div>
+<script type="text/javascript" src="static/js/jquery-1.7.min.js"></script>
+<script type='text/javascript' src='static/js/bootstrap.js'></script>
+<script type='text/javascript' src='static/js/test.js'></script>
+</html>

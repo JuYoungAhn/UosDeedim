@@ -1,0 +1,55 @@
+<div class="product">
+<div class="photo_wrapper">
+	{% for r in result %}
+	<div class="product_inner_wrapper">
+		<div class="photo">
+			<a href="#myModal{{r.key}}" role="button" data-toggle="modal"><img src='/show_image2/{{r.key}}'></a>
+		</div>
+		<div class="product_des">
+			<span class="name">{{r.name}}</span><br>
+			<span class="price">{{r.price_str}}</span>
+		</div>
+		<div id="myModal{{r.key}}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-header">
+		    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		    <h3 id="myModalLabel">상품 상세보기</h3>
+		  </div>
+		  <div class="modal-body">
+		  	<div class="detail_photo">
+			  	{% if r.repre_img %}
+			  	<img src='/show_image2/{{r.key}}'>
+			  	{% else %}
+			  	{% endif %}
+		  	</div>
+		  	<div class="detail_photo">
+			  	{% if r.detail_img1 %}
+			  	<img src='/show_detail1/{{r.key}}'>
+			  	{% else %}
+			  	{% endif %}
+		  	</div>
+		  	<div class="detail_photo">
+			  	{% if r.detail_img2 %}
+			  	<img src='/show_detail2/{{r.key}}'>
+			  	{% else %}
+			  	{% endif %}
+		  	</div>
+		  	<div class="detail_photo">
+			  	{% if r.detail_img3 %}
+			  	<img src='/show_detail3/{{r.key}}'>
+			  	{% else %}
+			  	{% endif %}
+		  	</div>
+		  </div>
+		  <div class="modal-footer">
+		    <button class="btn" data-dismiss="modal" aria-hidden="true">닫기</button>
+		  </div>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+</div>
+{% if moreProduct %}
+<div class="container pagination-centered" id="more">
+	<a class="label label-inverse sales_more" onclick="getProducts({{offset}})">더보기</a>
+</div>
+{% endif %}

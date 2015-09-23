@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+{% extends "menu.html" %}
+<title>{{title}}</title>
+<body>
+{% block content %}
+<head>
+   <meta charset="utf-8">
+   <title>이용방법</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <style>
+   		@import url("/static/css/docs.css");	
+		@import url("/static/css/bootstrap.css");
+		@import url("/static/css/bootstrap-responsive.css");
+	    @import url("/static/css/sales.css");
+	    #banner {margin-top:30px;margin-bottom:30px;}
+	</style>
+</head>
+<div class="container" id="banner">
+<a href="/boardList?menu_id=2"><img src="/static/image/banner_review.png"></a>
+</div>
+<div class="container" id="list">
+	<iframe src="http://jy93630.dothome.co.kr/?mid=board2" width="1080px" height="750px" scrolling="auto" frameborder="0"></iframe>
+</div>
+{% endblock %}
+</body>
+</html>

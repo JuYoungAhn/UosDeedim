@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+{% extends "menu.html" %}
+<meta charset="utf-8">
+<title>{{title}}</title>
+</head>
+<body>
+{% block content %}
+<style>
+body .container {width:980px}
+</style>
+<div class="container" id="banner">
+<h3>상품 업로드</h3>
+</div>
+<div class="container" id="product_write">
+	<form action="/productWrite" method="post" name="productWrite" enctype='multipart/form-data'>
+	<table class="table table-bordered">
+		<tr>
+		<th>이름</th>
+		<td><input type="text" name="name"></td>
+		</tr>
+		<tr>
+		<th>회사</th> 
+		<td><input type="text" name="company"></td>
+		</tr>
+		<tr>
+		<th>사이즈</th>
+		<td><input type="text" name="size"> <strong> 숫자만 입력! </strong></td>
+		</tr>
+		<tr>
+		<th>가격</th>
+		<td><input type="text" name="price"> <strong> 숫자만 입력! </strong></td>
+		</tr>
+		<tr>
+		<th>설명</th>
+		<td><textarea name="description"></textarea></td>
+		</tr>
+		<tr>
+		<th>대표 이미지</th>
+		<td><input type="file" name="image"></td>
+		</tr>
+		<tr><th rowspan="4">디테일 이미지</th></tr>
+		<tr><td><input type="file" name="detail_img1"></td></tr>
+		<tr><td><input type="file" name="detail_img2"></td></tr>
+		<tr><td><input type="file" name="detail_img3"></td></tr>
+		<tr>
+		<td colspan="2"><div class="pagination-centered"><input type="submit" value="등록"></div></td>
+		</tr>
+	</table>
+	</form>
+</div>
+{% endblock %}
+</body>
+</html>
