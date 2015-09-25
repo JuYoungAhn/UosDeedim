@@ -39,10 +39,10 @@ class ProductDetailImage(db.Model):
     detail_img2 = db.BlobProperty()
     detail_img3 = db.BlobProperty()
 
-productCount = 9
+productCount = 8
 
 class BasePage(webapp.RequestHandler):
-    title = 'DeedimFun'
+    title = 'Deedim'
     def intWithCommas(self, x):
         if type(x) not in [type(0), type(0L)]:
             raise TypeError("Parameter must be an integer.")
@@ -68,7 +68,7 @@ class MainPage(BasePage):
         
         self.response.out.write(template.render(path, template_values))
         
-class boardList(BasePage):
+class BoardList(BasePage):
     def get(self):
         menu_id = int(self.request.get('menu_id'))
         template_values = {'title': self.title, 'menu_id' : int(menu_id)}
@@ -82,7 +82,7 @@ class boardList(BasePage):
             path = os.path.join(path, 'faq.html')
         self.response.out.write(template.render(path, template_values))
 
-class sales(BasePage):
+class Sales(BasePage):
     def get(self):
         result = Product.all().order("-date")[0:productCount]
         count = len(result)
@@ -99,21 +99,21 @@ class sales(BasePage):
         path = os.path.join(path, 'sales.html')
         self.response.out.write(template.render(path, template_values))
 
-class description(BasePage):
+class Description(BasePage):
     def get(self):
         template_values = {'title': self.title}
         path = os.path.join(os.path.dirname(__file__), 'templates')
         path = os.path.join(path, 'description.html')
         self.response.out.write(template.render(path, template_values))
         
-class aboutUs(BasePage):
+class AboutUs(BasePage):
     def get(self):
         template_values = {'title': self.title}
         path = os.path.join(os.path.dirname(__file__), 'templates')
         path = os.path.join(path, 'aboutus.html')
         self.response.out.write(template.render(path, template_values))
 
-class imgHandler():
+class ImgHandler():
     def transform(self, file):
         img = images.Image(file)
         img.im_feeling_lucky()
@@ -130,7 +130,7 @@ class imgHandler():
         
         return png_data
 
-class productList(BasePage):
+class ProductList(BasePage):
     def get(self):
         result = Product.all().order("-date")
         
@@ -139,7 +139,7 @@ class productList(BasePage):
         path = os.path.join(path, 'product_list.html')
         self.response.out.write(template.render(path, template_values))
      
-class productWrite(BasePage):
+class ProductWrite(BasePage):
     def get(self):
         template_values = {'title': self.title}
         path = os.path.join(os.path.dirname(__file__), 'templates')
@@ -155,7 +155,7 @@ class productWrite(BasePage):
         size = int(cgi.escape(self.request.get('size')))
         
         # Get the actual data for the picture and Transform
-        imgHandlerIns = imgHandler();
+        imgHandlerIns = ImgHandler();
         thumbnail_img = None
         repre_img = None
         detail_img1 = None
@@ -189,12 +189,12 @@ class productWrite(BasePage):
 
         self.redirect('/sales')
 
-class productDelete(BasePage):
+class ProductDelete(BasePage):
     def post(self):
         db.delete(cgi.escape(self.request.get('key')));
         self.redirect('/productList')    
 
-class productUpdate(BasePage):
+class ProductUpdate(BasePage):
     def get(self):
         
         result = db.get(self.request.get("key"))
@@ -212,7 +212,7 @@ class productUpdate(BasePage):
         obj.description = cgi.escape(self.request.get('description'))
         obj.size = int(cgi.escape(self.request.get('size')))
         
-        imgHandlerIns = imgHandler();
+        imgHandlerIns = ImgHandler();
         
         thumbnail_img = None
         repre_img = None
@@ -253,28 +253,28 @@ class Image2(BasePage):
     self.response.out.write(product.image)
     
 
-class showDetailImg1(BasePage):
+class ShowDetailImg1(BasePage):
     def get(self, key):
         product = db.get(key)
     
         self.response.headers['Content-Type'] = 'image/png'
         self.response.out.write(product.detail_img1)
             
-class showDetailImg2(BasePage):
+class ShowDetailImg2(BasePage):
     def get(self, key):
         product = db.get(key)
     
         self.response.headers['Content-Type'] = 'image/png'
         self.response.out.write(product.detail_img2)
         
-class showDetailImg3(BasePage):
+class ShowDetailImg3(BasePage):
     def get(self, key):
         product = db.get(key)
     
         self.response.headers['Content-Type'] = 'image/png'
         self.response.out.write(product.detail_img3)        
  
-class getProducts(BasePage):
+class GetProducts(BasePage):
     def post(self):
         logging.info(self.request.body)
         data = json.loads(self.request.body)
@@ -283,6 +283,8 @@ class getProducts(BasePage):
         
         result = Product.all().order("-date")[offset:limit]
         count = len(result)
+        for r in result :
+            r.price_str =  r.price_str = BasePage.intWithCommas(self, r.price)
         
         moreProduct = True
         if (count < productCount ):
@@ -293,7 +295,7 @@ class getProducts(BasePage):
         path = os.path.join(path, 'product.html')
         self.response.out.write(template.render(path, template_values))  
             
-class sample(BasePage):
+class Sample(BasePage):
     def get(self):
         template_values = {'title': self.title}
         path = os.path.join(os.path.dirname(__file__), 'templates')
@@ -301,21 +303,21 @@ class sample(BasePage):
         self.response.out.write(template.render(path, template_values))
                     
 application = webapp.WSGIApplication([('/', MainPage),
-                                      ('/aboutUs', aboutUs),
-                                      ('/boardList', boardList),
-                                      ('/description', description),
-                                      ('/sales', sales),
+                                      ('/aboutUs', AboutUs),
+                                      ('/boardList', BoardList),
+                                      ('/description', Description),
+                                      ('/sales', Sales),
                                       ('/show_image/([-\w]+)', Image),
                                       ('/show_image2/([-\w]+)', Image2),
-                                      ('/show_detail1/([-\w]+)', showDetailImg1),
-                                      ('/show_detail2/([-\w]+)', showDetailImg2),
-                                      ('/show_detail3/([-\w]+)', showDetailImg2),
-                                      ('/productWrite', productWrite),
-                                      ('/getProducts', getProducts),
-                                      ('/productList', productList),
-                                      ('/productDelete', productDelete),
-                                      ('/productUpdate', productUpdate),
-                                      ('/sample', sample)], 
+                                      ('/show_detail1/([-\w]+)', ShowDetailImg1),
+                                      ('/show_detail2/([-\w]+)', ShowDetailImg2),
+                                      ('/show_detail3/([-\w]+)', ShowDetailImg2),
+                                      ('/productWrite', ProductWrite),
+                                      ('/getProducts', GetProducts),
+                                      ('/productList', ProductList),
+                                      ('/productDelete', ProductDelete),
+                                      ('/productUpdate', ProductUpdate),
+                                      ('/sample', Sample)], 
                                      debug=True)
 
 def main():

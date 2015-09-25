@@ -1,9 +1,9 @@
-#sales {margin-left:70px;margin-top:20px;}
+#sales {margin-left:20px;margin-top:20px;}
 #sales .product {display:inline-block;}
-#sales .product_inner_wrapper {float:left;width:300px;height:330px;margin:7px;margin-bottom:30px;}
+#sales .product_inner_wrapper {float:left;width:270px;height:300px;margin:7px;margin-bottom:30px;}
 #sales .product_inner_wrapper .photo_wrapper {display:inline-block; width:980px;}
-#sales .product_inner_wrapper .photo {float:left;width:300px;height:300px;border:1px solid #e4e4e4}
-#sales .product_inner_wrapper .photo img {width:300px;height:300px;}
+#sales .product_inner_wrapper .photo {float:left;width:270px;height:270px;border:1px solid #e4e4e4}
+#sales .product_inner_wrapper .photo img {width:270px;height:270px;}
 #sales .product_inner_wrapper .product_des {text-align:center;}
 #sales .product_inner_wrapper .product_des .price {color:#639346;font-weight:bold}
 #sales .product_inner_wrapper .product_des .name {}
