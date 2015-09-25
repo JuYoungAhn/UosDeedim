@@ -42,7 +42,7 @@ class ProductDetailImage(db.Model):
 productCount = 8
 
 class BasePage(webapp.RequestHandler):
-    title = 'DeedimWork2'
+    title = 'DeedimWork'
     def intWithCommas(self, x):
         if type(x) not in [type(0), type(0L)]:
             raise TypeError("Parameter must be an integer.")
