@@ -5,12 +5,30 @@
 #main .product .product_description {width:50%;height:20px;background-color: rgba(0,0,0,.6);color:white;position:relative;top:-20px;text-align:center}
 #main .product .product_description2 {width:50%;height:20px;background-color: rgba(0,0,0,.6);color:white;font-size:12pt;position:relative;top:-20px;text-align:center}
 #main .service_div img {width:200px;height:200px;border : 1px solid #e4e4e4}
-#main .service_div{width:200px;height:200px;margin-bottom:20px;}
+#main .service_div{width:200px;height:200px;margin-bottom:20px;display:none;}
 #main .repair_tag {width:50%;height:20px;background-color: rgba(0,0,0,.6);color:white;position:relative;top:-20px;text-align:center}
 #main .repair_tag {width:50%;height:20px;background-color: rgba(0,0,0,.6);color:white;font-size:12pt;position:relative;top:-20px;text-align:center}
 #main .main_photo {display:inline-block;height:400px;margin-bottom:20px;}
-#main .main_photo .catchphrase {margin-top:170px}
+#main .main_photo .catchphrase {margin-top:90px;background-color: rgba(0,0,0,.6);padding:15px;line-height:25px;}
 #main .main_photo .catchphrase p{color:white;font-weight:bold;font-size:13pt;}
-#main .main_photo .catchphrase h1 {color:#f8d406;font-weight:bold;}
+#main .main_photo .catchphrase h1 {color:#f8d406;font-weight:bold;line-height:55px;}
+#main .main_photo .catchphrase .big {margin-bottom:30px;}
+#main .estimation {text-align:center;margin-top:90px;padding:40px;padding-left:20px;padding-right:20px;background-color:#fff;opacity:0.6;color:black; font-weight:bold;font-size:14pt;}
+#main .estimation a {color:black;}
+#main .estimation2 {text-align:center;margin-top:20px;padding:73px;padding-left:20px;padding-right:20px;background-color:#fff;opacity:0.6;color:black; font-weight:bold;font-size:14pt;}
+#main .estimation2 a {color:black;}
 body {background: url("/static/image/main_bg.jpg") repeat-y;padding-bottom:0}
 .footer {color:white;background-color: rgba(0,0,0,.6);height:50px;}
+
+
+@media (max-width: 480px)  {
+	#main .estimation {margin-top:20px;margin-left:0px;}
+	#main .estimation img {}
+	#main .main_photo .catchphrase .big {margin-bottom:30px;}
+	#main .main_photo .catchphrase h1 {color:#f8d406;font-weight:bold;font-size:16pt;line-height:30px;}
+	body {background: url("/static/image/main2.jpg") repeat-y;padding-bottom:0}
+	#main .main_photo .catchphrase p {font-size:11pt;line-height:25px;}
+	#main .service_div {display: none;}
+	#main .product {display:none;}
+	#main .main_photo .catchphrase {margin-top:30px}
+}
