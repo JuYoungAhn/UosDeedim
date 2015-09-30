@@ -1,5 +1,5 @@
 @ chaset "utf-8";
-.navbar {width:100%;text-align:center}
+.navbar {width:100%;text-align:center;opacity:0.8}
 .navbar li {line-height:25px;}
 .navbar .standard_li {width:120px;line-height:25px;}
 .navbar_inner div {width:1200px;margin: 0 auto;}
@@ -14,6 +14,6 @@
 .side_menu{margin-top:30px;}
 .side_menu ul {margin-top:30px;}
 .side_menu .bs-docs-sidenav.affix {top:60px;}
-
-body {padding-bottom:0}
+body {padding-bottom:0;font-family: NanumBarunGothic,"NanumBarunGothic","돋움",Dotum,Arial,Dotum,Arial,Verdana,sans-serif}
 .footer {color:white;background-color: rgba(0,0,0,.6);height:70px;}
+.footer .gray {color:#cececd}
