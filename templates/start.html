@@ -11,7 +11,7 @@
 	    @import url("/static/css/main.css");
 	</style>
   </head>
-<div id="main" class="container">
+<div id="main" class="">
 	  <div class="row">	
  	  <div class="main_photo">
 	 	    <div class="span6">
@@ -37,7 +37,8 @@
 	        </div>
       </div>
       </div>
-  	 <div class="row service">
+      <div class="bottom_area">
+  	 <div class="row service container">
         <div class="span3 service_div">
           <a href="#" role="button" data-toggle="modal"><img src="/static/image/main_shoes.png"></a>
           <p><span class="repair_tag">남성구두수선</span></p>
@@ -60,6 +61,9 @@
         </div>
      </div>
   	<div class="product row">
+  		<div class="product_banner">
+  			<h2>구두 판매</h2>
+  		</div>
   		{%for r in result%}
   		<div class="product_div span3">
   			<a href="#myModal{{r.key}}" role="button" data-toggle="modal" ><img src="/show_image/{{r.key}}"></a>
@@ -103,6 +107,7 @@
 		  </div>
 		</div>
   		{% endfor %}
+  		</div>
   	</div>
  </div>
  {% endblock %}
