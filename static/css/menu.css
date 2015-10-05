@@ -2,12 +2,12 @@
 .navbar {width:100%;text-align:center;opacity:0.8}
 .navbar li {line-height:25px;}
 .navbar .standard_li {width:120px;line-height:25px;}
-.navbar_inner div {width:1200px;margin: 0 auto;}
-.navbar .navbar-inner .logo {font-weight:bold;color:white}
+.navbar .navbar-inner .logo {font-weight:bold;color:#f8d406;margin-top:3px;padding-left:45px;}
 .nav img {width:45px;height:20px;}
+.nav .navbar-inner .brand {color:#f8d406}
 
 #side_menu {margin-left:20px;}
-#side_menu li {line-height:25px;}
+#side_menu li {line-height:25px;opacity :0.9}
 #side_menu a {color:#222}
 #side_menu .active a {color:#ffffff}
 
