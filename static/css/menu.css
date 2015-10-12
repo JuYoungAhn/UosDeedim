@@ -1,19 +1,22 @@
 @ chaset "utf-8";
-.navbar {width:100%;text-align:center;opacity:0.8}
-.navbar li {line-height:25px;}
+body {color:#222}
+body .navbar {font-size:14px;}
+body {font-size:11pt;}
+.navbar {width:100%;text-align:center;font-weight:bold;}
+.navbar-container {width:1140px;margin:0 auto;}
+.navbar li {line-height:25px;padding-top:0;height:47px;}
 .navbar .standard_li {width:120px;line-height:25px;}
-.navbar .navbar-inner .logo {font-weight:bold;color:#f8d406;margin-top:3px;padding-left:45px;}
+.navbar .navbar-inner .logo {font-weight:bold;color:#f8d406;padding-left:5px;}
+.navbar .navbar-inner .logo img {width:124.75px;height:25px;}
 .nav img {width:45px;height:20px;}
 .nav .navbar-inner .brand {color:#f8d406}
 
+#side_menu {background-color:#1b1b1b;margin-top:-20px;font-size:13px;opacity:0.9}
 #side_menu {margin-left:20px;}
-#side_menu li {line-height:25px;opacity :0.9}
+#side_menu li {line-height:25px;}
 #side_menu a {color:#222}
-#side_menu .active a {color:#ffffff}
+#side_menu .active a {color:#ffffff;background-color:#1b1b1b}
 
-.side_menu{margin-top:30px;}
-.side_menu ul {margin-top:30px;}
-.side_menu .bs-docs-sidenav.affix {top:60px;}
 body {padding-bottom:0;font-family: NanumBarunGothic,"NanumBarunGothic","돋움",Dotum,Arial,Dotum,Arial,Verdana,sans-serif}
-.footer {color:white;background-color: rgba(0,0,0,.6);height:70px;}
+.footer {color:white;background-color: rgba(0,0,0,.6);height:70px;font-size:14px}
 .footer .gray {color:#cececd}

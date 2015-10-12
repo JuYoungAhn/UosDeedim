@@ -2,6 +2,6 @@
 .catch {margin-bottom:30px;}
 .career_wrapper {}
 .career_wrapper .photo img {}
-section {padding-top:50px;}
-.main_content {margin-bottom:50px;}
-
+section {margin-bottom:50px;}
+.main_content {margin-bottom:50px;line-height:25px;}
+.main_content li {line-height:25px;}

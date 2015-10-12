@@ -1,16 +1,18 @@
 /* setup */ 
 .service {}
-#main .product {margin-left:5%;}
+#main .product {margin-left:5%;width:1280px;display:none;}
 #main .product .product_banner {margin-bottom:10px;width:175px;margin:0 auto;}
 #main .product .product_div {width:245px;height:230px;margin-bottom:20px;margin-left:0}
 #main .product .product_div img {width:245px;height:230px;}
 #main .product .product_description {width:50%;height:20px;background-color: rgba(0,0,0,.6);color:white;position:relative;top:-20px;text-align:center}
 #main .product .product_description2 {width:50%;height:20px;background-color: rgba(0,0,0,.6);color:white;font-size:12pt;position:relative;top:-20px;text-align:center}
-#main .service_div img {width:200px;height:200px;border : 1px solid #e4e4e4}
-#main .service_div{width:200px;height:200px;margin-bottom:20px;display:none;}
+#main .service {margin-left:5%;}
+#main .service .service_banner {margin-bottom:10px;width:175px;margin:0 auto;}
+#main .service_div{width:240px;height:230px;margin-bottom:20px;margin-left:10px;border:2px solid #cdcdcd;background-color:white}
+#main .service_div img {width:240px;height:230px;}
 #main .repair_tag {width:50%;height:20px;background-color: rgba(0,0,0,.6);color:white;position:relative;top:-20px;text-align:center}
 #main .repair_tag {width:50%;height:20px;background-color: rgba(0,0,0,.6);color:white;font-size:12pt;position:relative;top:-20px;text-align:center}
-#main .main_photo {border-top:2px solid black;height:550px;background: url("/static/image/main_bg.jpg");opacity:0.9;margin-top:3%;width:100%}
+#main .main_photo {border-top:2px solid black;height:610px;margin-top:-22px;background: url("/static/image/main_bg.jpg");opacity:0.9;width:100%}
 #main .main_photo .catchphrase {padding:15px;line-height:25px;background-color: rgba(0,0,0,.6);margin-left:20%;margin-top:17%}
 #main .main_photo .catchphrase p{color:white;font-weight:bold;font-size:13pt;}
 #main .main_photo .catchphrase h1 {color:#f8d406;font-weight:bold;line-height:55px;}
@@ -24,7 +26,7 @@ body {padding-bottom:0;}
 .footer {color:white;background-color: rgba(0,0,0,.6);height:70px;}
 
 @media (max-width: 480px)  {
-	#main .main_photo {height:350px;}
+	#main .main_photo {height:370px;}
 	#main .main_photo .catchphrase {padding:15px;line-height:25px;background-color: rgba(0,0,0,.6);margin-left:0%;margin-top:7%}
 	#main .estimation {margin-top:20px;margin-left:0px;}
 	#main .estimation img {}
