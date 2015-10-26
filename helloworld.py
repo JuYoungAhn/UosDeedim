@@ -294,6 +294,13 @@ class GetProducts(BasePage):
         path = os.path.join(os.path.dirname(__file__), 'templates')
         path = os.path.join(path, 'product.html')
         self.response.out.write(template.render(path, template_values))  
+
+class Event(BasePage):
+    def get(self):
+        template_values = {'title': self.title}
+        path = os.path.join(os.path.dirname(__file__), 'templates')
+        path = os.path.join(path, 'event.html')
+        self.response.out.write(template.render(path, template_values))
             
 class Sample(BasePage):
     def get(self):
@@ -317,7 +324,8 @@ application = webapp.WSGIApplication([('/', MainPage),
                                       ('/productList', ProductList),
                                       ('/productDelete', ProductDelete),
                                       ('/productUpdate', ProductUpdate),
-                                      ('/sample', Sample)], 
+                                      ('/sample', Sample),
+                                      ('/event', Event)], 
                                      debug=True)
 
 def main():

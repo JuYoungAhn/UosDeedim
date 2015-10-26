@@ -23,9 +23,9 @@
 #main .estimation2 a {color:black;}
 body {padding-bottom:0;}
 #main .bottom_area {background-color:#e4e4e4;padding-top:15px;padding-bottom:20px;}
-.footer {color:white;background-color: rgba(0,0,0,.6);height:70px;}
 
 @media (max-width: 767px)  {
+	body {padding:0}
 	#main .service_div{display:inline-block;width:45%;height:230px;margin-bottom:20px;border:2px solid #cdcdcd;background-color:white}
 	#main .service_div img {width:100%;height:230px;}
 }
@@ -39,6 +39,5 @@ body {padding-bottom:0;}
 	#main .main_photo .catchphrase p {font-size:11pt;line-height:25px;}
 	#main .service {display: none;}
 	#main .product {display:none;}
-	#main .bottom_area {background-color:transparent;padding-top:30px;padding-bottom:20px;}
-	.footer {color:white;background-color: rgba(0,0,0,.6);height:90px;}
+	#main .bottom_area {background-color:transparent;padding-top:30px;padding-bottom:20px;display:none}
 }

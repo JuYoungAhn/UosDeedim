@@ -30,3 +30,7 @@ function deleteProduct(date){
 		deleteForm.submit();
 	}
 }
+function change(str){
+	$("section").css("display","none");
+	$("section#"+str).show();
+}
