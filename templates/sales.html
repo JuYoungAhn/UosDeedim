@@ -5,7 +5,6 @@
 <meta charset="utf-8">
 <title>{{title}}</title>
 </head>
-<body>
 {% block content %}
 <head>
    <meta charset="utf-8">
@@ -20,16 +19,17 @@
 	    #banner {margin-top:10px;}
 	</style>
 </head>
+<body onload="changeMenuColor('sales_menu')">
 <div class="row" id="sales">
 	<div class="container">
 		<div id="banner">
 			<img src="/static/image/main_menu_sale.png">
 		</div>
 		<div class="span catch_span">
-			<div class="catch_font margin10">메이커 납품용 구두를 싸게 구입할 수 있는 찬스!</div><br>
+			<div class="catch_font2 margin"><span>메이커 납품용 구두를 싸게 구입할 수 있는 찬스!</span></div><br>
 			<span>상표만 없을뿐 상품의 질은 똑같아요.</span>
 		</div>
-		<div class="catch_div row">
+		<div class="catch_div span">
 			<div class="span kakao">
 				<div class="span kakao_img_div">
 					<img src="/static/image/kakao.png" class="kakao_img">

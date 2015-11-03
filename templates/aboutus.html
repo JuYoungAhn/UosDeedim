@@ -15,14 +15,15 @@
 	    @import url("/static/css/style.css");
 	</style>
 </head>
-<div class="row">
+<body onload="changeMenuColor('about_menu')">
+<div class="row" id="about_us">
 	<div class="span3 side_menu">
 		<div id="side_menu" class="bs-docs-sidebar">
 			<ul class="nav nav-list bs-docs-sidenav bs-docs-sidebar">
-			  <li class="active"><a href="#">디딤소개</a></li>
-			  <li><a href="#" onclick="change('career')">약력</a></li>
-			  <li><a href="#" onclick="change('contact')">연락처 계좌 안내</a></li>
-			  <li><a href="#" onclick="change('map')">찾아오는 길</a></li>
+			  <li class="active"><a href="#aboutus">디딤소개</a></li>
+			  <li><a href="#career">약력</a></li>
+			  <li><a href="#contact">연락처 계좌 안내</a></li>
+			  <li><a href="#map">찾아오는 길</a></li>
 			</ul>
 		</div>
 	</div>
@@ -35,7 +36,7 @@
 			  </div>
 			  <div class="chunk_content">
 			  	  <img src="/static/image/about_us.jpg"><br><br>
-				  <div class="catch_font margin10">40년 구두 장인의 구둣방</div>
+				  <div class="catch_font2 margin10">40년 구두 장인의 구둣방</div>
 				  <p class="paragraph">
 				  디딤 구둣방은 <strong class="catch_small2">15년에 걸친 구두 제작 경력</strong>과 <strong class="catch_small2">20년 동안의 구두수선 경력</strong>을 가진
 				  구두장인 김종수 씨가 운영하는 구둣방입니다. <br>
@@ -104,5 +105,6 @@
 		</section>
 	</div>
 </div>
+</body>
 {% endblock %}
 </html>

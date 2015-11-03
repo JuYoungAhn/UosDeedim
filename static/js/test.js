@@ -9,7 +9,17 @@ $(document).ready(function() {
 		$(this).attr("class", "active");
 	});
 	$("#side_menu li").mouseover(function(){
-		
+	});
+	$("#side_menu li").mouseout(function(){
+		$(this).css("font-weight", "normal")
+	});
+	$(".navbar .navbar-inner  .standard_li a").mouseover(function(){
+		$(this).css("background-color", "#000")
+		$(this).css("color", "#fff")
+	});
+	$(".navbar .navbar-inner  .standard_li a").mouseout(function(){
+		if($(this).attr("class") != "active")
+			$(this).css("background-color", "#222");
 	});
 });
 function getProducts(offset){
@@ -32,5 +42,17 @@ function deleteProduct(date){
 }
 function change(str){
 	$("section").css("display","none");
-	$("section#"+str).show();
+	$(str).show();
+}
+function changeMenuColor(str){
+	$("."+str).css("background-color", "#000")
+	$("."+str).attr("class", "active");
+	if(location.hash)
+		change(location.hash);
+}
+window.addEventListener('hashchange', function(){
+	change(location.hash);
+});
+function goRepair(){
+	location.href = "description#repair";
 }

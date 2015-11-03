@@ -3992,13 +3992,11 @@ input[type="submit"].btn.btn-mini {
 
 .nav-list > li > a,
 .nav-list .nav-header {
-  margin-right: -15px;
-  margin-left: -15px;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 .nav-list > li > a {
-  padding: 3px 15px;
+  padding: 4px 15px;
 }
 
 .nav-list > .active > a,
@@ -4766,19 +4764,6 @@ input[type="submit"].btn.btn-mini {
   -webkit-border-radius: 6px 0 6px 6px;
      -moz-border-radius: 6px 0 6px 6px;
           border-radius: 6px 0 6px 6px;
-}
-
-.navbar-inverse .navbar-inner {
-	opacity:.9;
-  background-color: #1b1b1b;
-  background-image: -moz-linear-gradient(top, #1b1b1b, #1b1b1b);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#1b1b1b), to(#1b1b1b));
-  background-image: -webkit-linear-gradient(top, #1b1b1b, #1b1b1b);
-  background-image: -o-linear-gradient(top, #1b1b1b, #1b1b1b);
-  background-image: linear-gradient(to bottom, #1b1b1b, #1b1b1b);
-  background-repeat: repeat-x;
-  border-color: #252525;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1b1b1b', endColorstr='#1b1b1b', GradientType=0);
 }
 
 .navbar-inverse .brand,

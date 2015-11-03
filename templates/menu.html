@@ -6,10 +6,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{title}}</title>
 <style>
-@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@import url(https://cdn.rawgit.com/openhiun/hangul/14c0f6faa2941116bb53001d6a7dcd5e82300c3f/nanumbarungothic.css);
 @import url("/static/css/bootstrap.css");
 @import url("/static/css/bootstrap-responsive.css");
 @import url("/static/css/menu.css");
+@import url("/static/css/style.css");
 </style>
 </head>
 <div class="navbar navbar-inverse">
@@ -23,13 +24,17 @@
          <a class="brand logo" href="/"><img src="/static/image/foot.png">디딤</a>
          <div class="nav-collapse collapse">
            <ul class="nav">
-   			<li class="standard_li"><a href="/aboutUs">디딤소개</a>
-   			<li class="standard_li"><a href="/description">이용방법</a></li>
-			<li class="standard_li"><a href="/sales">구두판매</a></li>	
-   			<li class="standard_li"><a href="/boardList?menu_id=1">견적문의</a></li>
-   			<li class="standard_li"><a href="/boardList?menu_id=2">이용후기</a></li>
-   			<li class="standard_li"><a href="/boardList?menu_id=3">FAQ</a></li>
-   			<li class="standard_li"><a href="/event">이벤트</a></li>
+   			<li class="standard_li"><a href="/aboutUs" class="about_menu">디딤소개</a>
+   			<li class="standard_li"><a href="/description" class="description_menu">이용방법</a></li>
+			<li class="standard_li"><a href="/sales" class="sales_menu">구두판매</a></li>	
+   			<li class="standard_li"><a href="/boardList?menu_id=1" class="list_menu">견적문의</a></li>
+   			<li class="standard_li"><a href="/boardList?menu_id=2" class="review_menu">이용후기</a></li>
+   			<li class="standard_li"><a href="/boardList?menu_id=3" class="faq_menu">FAQ</a></li>
+   			<li class="standard_li"><a href="/event" class="event_menu">이벤트</a></li>
+   			<!--  
+   			<li class="icon_li"><a href="/event" class="event_menu"><img src="/static/image/facebook_tr.png"></a></li>
+   			<li class="icon_li"><a href="/event" class="event_menu"><img src="/static/image/blogger_tr.png"></a></li>
+   			-->
    		</ul> 
          </div><!--/.nav-collapse -->
        </div>
