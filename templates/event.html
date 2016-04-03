@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+{% extends "menu.html" %}
+{% block content %}
+<head>
+   <meta charset="utf-8">
+   <title>Bootstrap, from Twitter</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <style>
+   		@import url("/static/css/docs.css");	
+		@import url("/static/css/bootstrap.css");
+		@import url("/static/css/bootstrap-responsive.css");
+		@import url("/static/css/menu.css");	
+		@import url("/static/css/event.css");
+		@import url("/static/css/style.css");
+	</style>
+</head>
+<script>
+function showMethod(){
+	if($(".method").css("display") == 'none')
+		$(".method").show();
+	else {
+		$(".method").hide();
+	}
+}
+</script>
+<body onload="changeMenuColor('event_menu')">
+<div class="container" id="event">
+	<h3 class="blue">따뜻한 구두 나눔 "Good友" 소개</h3>
+		<div class="row content">
+			<div class="span7">
+				<br>신발장 속에 오래되어 신지 않는 낡은 구두가 있다구요?<br><strong>디딤 구둣방</strong>에 기부해주세요! 
+				<br><br>
+				기부받은 구두는 디딤 구둣방에서 정성스레 손질되어 <br>
+				<strong>면접시 구두가 필요한</strong> 취업준비생에게 기부됩니다.
+				<br><br>
+			</div>
+		</div>
+		<div class="margin30">
+			<h3 class="blue">구두 기증 관련 안내</h3>
+		</div>
+		<div class="row content">
+			<div class="span4">
+				<h4>1. 개인기부자</h4>
+				<img src="/static/image/share_event.png">
+			</div>
+			<div class="span4">
+				<h4>2. 단체 기부자</h4>
+				<img src="/static/image/share_event2.png">
+			</div>
+		</div>
+		<div class="row content">
+			<div class="span8">구두 기증 참여 방법 : deedim_shoes@naver.com 또는 010-3892-1902 로 문의</div>
+		</div>
+		<div class="margin30">
+			<h3 class="blue">구두 나눔 받기</h3>
+			<div class="row content">
+				<div class="span8">
+				<p>
+					취업과 관련된 사연 및 사진을 등록하시면 심사 후 구두를 나누어드립니다.
+				</p><br>
+				<div class="row">
+					<div class="span4">
+						<span class="nanum_number">1번</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>Elcanto / 280mm</span>
+						<a><img src="/static/image/nanum1.jpg"></a>
+					</div>
+					<div class="span4">
+						<span class="nanum_number">2번</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>Black Oxford / 230mm</span>
+						<a><img src="/static/image/nanum2.jpg"></a>
+					</div>
+					<div class="span4">
+						<span class="nanum_number">3번</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>Vianni / 235mm</span>
+						<a><img src="/static/image/nanum3.jpg"></a>
+					</div>
+					<div class="span4">
+						<span class="nanum_number">4번</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>Kuchi Collection / 235mm</span>
+						<a><img src="/static/image/nanum4.jpg"></a>
+					</div>
+					<div class="span4">
+						<span class="nanum_number">5번</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>Tendy / 280mm</span>
+						<a><img src="/static/image/nanum5.jpg"></a>
+					</div>
+					<div class="span4">
+						<span class="nanum_number">6번</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>Lizzy / 230mm</span>
+						<a><img src="/static/image/nanum6.jpg"></a>
+					</div>
+				</div>
+				<div class="span7 pagination-centered margin30">
+					<a href="eventWrite" class="btn_yellow">신청하기</a>
+				</div>
+				</div>
+			</div>
+		</div>
+</div>
+</body>
+{% endblock %}
+</html>

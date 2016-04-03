@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+{% extends "menu.html" %}
+{% block content %}
+<head>
+<meta charset="utf-8">
+<title>{{title}}</title>
+<style>
+@import url("/static/css/event.css");	
+</style>
+</head>
+<body>
+<div class="container" id="event_content">
+	 <h3>이벤트 신청글 조회</h3>
+	<form action="/eventWrite" method="post" name="eventWrite" enctype='multipart/form-data'>
+		<div class="margin30">
+			<table class="table table-bordered">
+				<tr>
+				<th>이름</th>
+				<td>{{result.name}}</td>
+				</tr>
+				<tr>
+				<th>핸드폰</th>
+				<td>{{result.phone}}</td>
+				</tr>
+				<tr>
+				<th>주소</th> 
+				<td>{{result.address}}</td>
+				</tr>
+				<tr>
+				<th>사연</th>
+				<td class="story">{{result.story}}</td>
+				</tr>
+				<tr>
+				<th>신청일자</th>
+				<td class="story">{{result.date}}</td>
+				</tr>
+				<tr>
+				<th>사진</th>
+				<td><img src="/show_image2/{{result.key}}"></td>
+				</tr>
+			</table>
+		</div>
+	</form>
+</div>
+{% endblock %}
+</body>
+</html>

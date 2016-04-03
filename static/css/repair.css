@@ -1,0 +1,10 @@
+@CHARSET "EUC-KR";
+.repair_div {margin-bottom:30px;}
+.through{text-decoration: line-through}
+.des {color:#999}
+.banner{margin-bottom:30px;}
+.repair_item {margin-top:30px;}
+#repair_content th{background-color:#f6f6f6;text-align:center;padding:10px}
+.address{width:400px;}
+.cart_icon {width:24px;height:24px;}
+.main_content{margin-bottom:50px;padding-left:10px;padding-right:10px;}

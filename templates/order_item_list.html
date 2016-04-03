@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+{% extends "menu.html" %}
+<meta charset="utf-8">
+<title>{{title}}</title>
+</head>
+<body>
+{% block content %}
+<style>
+</style>
+<div class="container" id="banner">
+	<h3>수선 품목 리스트</h3>
+</div>
+<div class="container" id="product_list">
+	<form action="orderItemDelete" name="deleteForm" method="post">
+		<input type="hidden" name="key">
+		<div class="margin30">
+			<table class="table"> 
+				<thead>
+					<tr>
+						<th class="name">이름</th>
+						<th class="phone">이전금액</th>
+						<th class="address">나중금액</th>
+						<th class="amount">설명</th>
+						<th class="date">타입</th>
+						<th class="ect">기타</th>
+					</tr>
+				</thead>
+				<tbody>
+				{% for r in result %}
+				<tr>
+					<td>{{r.name}}</td>
+					<td>{{r.before_price}}</td>
+					<td>{{r.after_price}}</td>
+					<td>{{r.des}}</td>
+					<td>{{r.type}}</td>
+					<td><a href="orderItemContent?key={{r.key}}" class="label label-inverse more">보기</a> <a onclick="deleteContent('{{r.key}}')" class="label label-red more">삭제</a></td>
+				</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</form>	
+	<div class="margin30">
+	</div>
+</div>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+{% extends "menu.html" %}
+<meta charset="utf-8">
+<title>{{title}}</title>
+</head>
+<body>
+{% block content %}
+<style>
+</style>
+<div class="container" id="banner">
+	<h3>주문목록</h3>
+</div>
+<div class="container" id="product_list">
+	<form action="orderDelete" name="deleteForm" method="post">
+		<input type="hidden" name="key">
+		<div class="margin30">
+			<table class="table"> 
+				<thead>
+					<tr>
+						<th class="name">이름</th>
+						<th class="phone">연락처</th>
+						<th class="address">주소</th>
+						<th class="state">상태</th>
+						<th class="date">일시</th>
+						<th class="ect">기타</th>
+					</tr>
+				</thead>
+				<tbody>
+				{% for r in result %}
+				<tr>
+					<td>{{r.id}}</td>
+					<td>{{r.phone}}</td>
+					<td>{{r.address}}</td>
+					<td>
+					{% if r.state == 1%}
+						주문완료
+					{% endif %}
+					{% if r.state == 2%}
+						입금대기
+					{% endif %}
+					{% if r.state == 3%}
+						입금완료
+					{% endif %}
+					{% if r.state == 4%}
+						물품도착
+					{% endif %}
+					{% if r.state == 5%}
+						배송중
+					{% endif %}
+					</td>
+					<td>{{r.date}}</td>
+					<td><a href="orderContent?key={{r.key}}" class="label label-inverse more">보기</a> <a onclick="deleteContent('{{r.key}}')" class="label label-red more">삭제</a></td>
+				</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</form>	
+	<div class="margin30">
+	</div>
+</div>
+{% endblock %}
+</body>
+</html>

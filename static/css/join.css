@@ -1,0 +1,12 @@
+ body {background-color:#f6f6f6}
+#join {width:600px;margin:0 auto;}
+.join_form {width:500px;border:1px solid #e4e4e4;padding-left:30px;padding-top:30px;background-color:white;margin-bottom:30px;padding-right:30px;}
+.user_info {padding:20px;margin-bottom:30px;border:1px solid #e4e4e4; background-color:#f6f6f6}
+.user_info .field {display:inline-block; width:60px;}
+
+.join_form .inner {margin-top:25px;}
+
+.small_input {width:50px;}
+.mild {color:#777;font-size:9pt;}
+
+.submit {text-align:center;margin-top:30px;}

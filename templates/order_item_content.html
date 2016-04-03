@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+{% extends "menu.html" %}
+{% block content %}
+<head>
+<meta charset="utf-8">
+<title>{{title}}</title>
+<style>
+@import url("/static/css/event.css");	
+</style>
+</head>
+<body>
+<div class="container" id="event_content">
+	 <h3>수선 품목 조회</h3>
+	<form action="/orderItemContent" method="post" name="orderUpdateForm" enctype='multipart/form-data'>
+		<input type="hidden" name="key" value="{{result.key}}">
+		<div class="margin30">
+			<table class="table table-bordered">
+				<tr>
+				<th>이름</th>
+				<td><input type="text" value="{{result.name}}" name="name"></td>
+				</tr>
+				<tr>
+				<th>이전금액</th>
+				<td><input type="text" value="{{result.before_price}}" name="before_price">
+				<span class="mild">숫자만 입력하세여.</span>
+				</td>
+				</tr>
+				<tr>
+				<th>나중금액</th> 
+				<td><input type="text" value="{{result.after_price}}" name="after_price">
+				<span class="mild">숫자만 입력하세여.</span>
+				</td>
+				</tr>
+				<tr>
+				<th>사연</th>
+				<td class="story"><input type="text" value="{{result.des}}" name="des"></td>
+				</tr>
+				<tr>
+				<th>타입</th>
+				<td class="story">
+				<input type="text" value="{{result.type}}" name="type">
+				<span class="mild">숫자만 입력하세여.</span>
+				</td>
+				</tr>
+				<tr>
+				<th>사진</th>
+				<td>
+				<div class="photo">
+				<img src="/show_image2/{{result.key}}">
+				</div>
+				<span class="mild">사진 변경하려면 그냥 삭제하고 다시하세여.</span>
+				</td>
+				</tr>
+			</table>
+			<div class="pagination-centered margin30">
+				<a class="btn" onclick="orderUpdateForm.submit()" href="#">수정</a>
+			</div>
+		</div>
+	</form>
+</div>
+{% endblock %}
+</body>
+</html>

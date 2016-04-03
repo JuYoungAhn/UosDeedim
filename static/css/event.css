@@ -1,0 +1,26 @@
+@CHARSET "EUC-KR";
+
+body {background-color: #e4e4e4}
+#event{margin-bottom:30px;padding-left:20px;padding-right:20px;background-color:white;
+margin-top:-20px;padding-top:20px;}
+#event_write {background-color:white;margin-top:-20px;padding:20px;}
+#event .catch_font {}
+.event_shoes {width:200px;}
+#event .content {padding-left:10px;padding-right:10px;}
+#event_content  {background-color:white;margin-top:-20px;padding:20px;}
+.indent {margin-left:20px;}
+.indent10 {margin-left:10px;}
+.indent0{margin-left:0px;}
+.event_des {margin-top:30px;margin-bottom:50px;}
+.gift img {width:300px;height:200px;}
+em.red {color:red}
+th {background-color:#f6f6f6}
+.nanum_number {text-align:center;font-weight:bold;}
+
+
+#event_content th {width:170px;text-align:center;padding:10px;}
+#event_content td {padding:10px;}
+#event_content .col2 {width:230px;}
+#event_content table .photo {width:300px;height:300px;}
+
+textarea {height:250px;width:450px;}

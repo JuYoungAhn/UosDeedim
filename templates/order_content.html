@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+{% extends "menu.html" %}
+{% block content %}
+<head>
+<meta charset="utf-8">
+<title>{{title}}</title>
+<style>
+@import url("/static/css/event.css");	
+</style>
+</head>
+<body>
+<form action="orderContent" method="post" name="updateForm">
+<input type="hidden" name="key" value="{{result.key}}">
+<div class="container" id="event_content">
+		<h3>주문조회</h3><a href="orderList" class="btn">주문목록으로</a> 
+		<div class="margin30">
+			<table class="table table-bordered">
+				<tr>
+				<th>아이디</th>
+				<td class="col2">{{result.id}}</td>
+				<th>핸드폰</th>
+				<td>{{result.phone}}</td>
+				</tr>
+				<tr>
+				<th>주소</th> 
+				<td>{{result.address}}</td>
+				<th>신청일자</th>
+				<td>{{result.date}}</td>
+				</tr>
+				<tr>
+				<th>
+				수선종류
+				</th>
+				<td>
+				{%if result.repair_type == 1%}
+				남성구두
+				{% endif %}
+				{% if result.repair_type == 2 %}
+				여성구두
+				{% endif %}
+				{% if result.repair_type == 3 %}
+				워커
+				{% endif %}
+				{% if result.repair_type == 4 %}
+				운동화
+				{% endif %}
+				</td>
+				<th>수선</th>
+				<td>{{result.repair_name}}</td>
+				</tr>
+				<tr>
+				<th>가격</th>
+				<td>{{result.price}}</td>
+				<th>최종가격</th>
+				<td>
+				{% if result.final_price == None%}
+				<input type="text" value="0" name="final_price">
+				{% else %}
+				<input type="text" value="{{result.final_price}}" name="final_price">
+				{% endif %}
+				</td>
+				</tr>
+				<tr>
+				<th>상태</th>
+				<td>
+				<select name="state">
+					{%if result.state == 1 %}
+						<option value="1" selected>주문완료</option>
+					{% else %}
+						<option value="1">주문완료</option>
+					{% endif %}
+					{%if result.state == 2 %}
+						<option value="2" selected>입금대기</option>
+					{% else %}
+						<option value="2">입금대기</option>
+					{% endif %}
+					{%if result.state == 3 %}
+						<option value="3" selected>입금완료</option>
+					{% else %}
+						<option value="3">입금완료</option>
+					{% endif %}
+					{%if result.state == 4 %}
+						<option value="4" selected>물품도착</option>
+					{% else %}
+						<option value="4">물품도착</option>
+					{% endif %}
+					{%if result.state == 5 %}
+						<option value="5" selected>배송중</option>
+					{% else %}
+						<option value="5">배송중</option>
+					{% endif %}
+				</select>
+				</td>
+				</tr>
+			</table>
+			<div class="pagination-centered">
+			<a class="btn_yellow" href="#" onclick="updateForm.submit()">수정</a>
+			</div>
+		</div>
+</div>
+</form>
+{% endblock %}
+</body>
+</html>

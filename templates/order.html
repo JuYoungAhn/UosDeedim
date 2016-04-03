@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+{% extends "menu.html" %}
+{% block content %}
+<head>
+   <meta charset="utf-8">
+   <title>Bootstrap, from Twitter</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <style>
+   		@import url("/static/css/docs.css");	
+		@import url("/static/css/bootstrap.css");
+		@import url("/static/css/bootstrap-responsive.css");
+		@import url("/static/css/menu.css");	
+	    @import url("/static/css/repair.css");
+	    @import url("/static/css/style.css");
+	    @import url("/static/css/order.css");
+	</style>
+</head>
+<script>
+function message(message){
+	if(message != ''){
+		alert(message+" 아이디를 다시 입력해주세요.");
+	}
+}
+function init(type){
+	$("#type"+type).addClass("active")
+}
+function execDaumPostcode() {
+    new daum.Postcode({
+        oncomplete: function(data) {
+            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+            // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+            var fullAddr = ''; // 최종 주소 변수
+            var extraAddr = ''; // 조합형 주소 변수
+
+            // 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+            if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                fullAddr = data.roadAddress;
+
+            } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                fullAddr = data.jibunAddress;
+            }
+
+            // 사용자가 선택한 주소가 도로명 타입일때 조합한다.
+            if(data.userSelectedType === 'R'){
+                //법정동명이 있을 경우 추가한다.
+                if(data.bname !== ''){
+                    extraAddr += data.bname;
+                }
+                // 건물명이 있을 경우 추가한다.
+                if(data.buildingName !== ''){
+                    extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                }
+                // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
+                fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
+            }
+
+            // 우편번호와 주소 정보를 해당 필드에 넣는다.
+            document.getElementById('postcode').value = data.zonecode; //5자리 새우편번호 사용
+            document.getElementById('address').value = fullAddr;
+
+            // 커서를 상세주소 필드로 이동한다.
+            document.getElementById('address2').focus();
+        }
+    }).open();
+}
+</script>
+<body onload="message('{{message}}');init({{repair.type}})">
+<div class="row">
+	<div class="span3 side_menu">
+		<div id="side_menu" class="bs-docs-sidebar">
+			<ul class="nav nav-list bs-docs-sidenav bs-docs-sidebar">
+			  <li><a href="repairBest"><i class="icon-heart"></i> 수선 BEST</a></li>
+			  <li><a href="#"><i class="icon-shopping-cart"></i> 수선 주문하기</a></li>
+			  <li id="type1"><a href="repair?type=1">&nbsp;&nbsp;&nbsp;&nbsp;-남성구두</a></li>
+			  <li id="type2"><a href="repair?type=2" class="repair_side dropdown-submenu">&nbsp;&nbsp;&nbsp;&nbsp;-여성구두</a></li>
+			  <li id="type3"><a href="repair?type=3">&nbsp;&nbsp;&nbsp;&nbsp;-워커수선</a></li>
+			  <li id="type4"><a href="repair?type=4">&nbsp;&nbsp;&nbsp;&nbsp;-운동화수선</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="repair_content" class="span9 main_content">
+		<h3>주문하기</h3>
+		<div>
+			<hr>
+		</div>
+		<div>
+		<form action="/order" method="post" name="orderWrite" enctype='multipart/form-data'>
+			<input type="hidden" name="repair_name" value="{{repair.name}}">
+			<input type="hidden" name="repair_type" value="{{repair.type}}">
+			<input type="hidden" name="price" value="{{repair.after_price}}">
+			<input type="hidden" name="key" value="{{key}}">
+			<table class="table table-bordered">
+				<tr>
+				<th>주문 아이디</th><td>{{user.id}}</td>
+				</tr>
+				<tr>
+				<th>주문자명</th><td>{{user.name}}<td></td>
+				</tr>
+				<tr>
+				<th>연락처</th><td><input type="text" name="phone" value="{{user.phone}}"></td>
+				</tr>
+				<tr>
+				<th>주소</th>
+				<td>
+				<input type="text" id="postcode" placeholder="우편번호" name="postcode" value="{{user.postcode}}">
+				<a onclick="execDaumPostcode()" class="btn">우편번호찾기</a><br>
+				<input type="text" id="address" placeholder="주소" name="address" value="{{user.address}}">
+				<input type="text" id="address2" placeholder="상세주소" name="detail_address" value="{{user.detail_address}}">
+				</td>
+				</tr>
+				<tr>
+				<th>수선 타입</th>
+				<td>
+				{%if repair.type == 1%}
+				남성구두
+				{% endif %}
+				{% if repair.type == 2 %}
+				여성구두
+				{% endif %}
+				{% if repair.type == 3 %}
+				워커
+				{% endif %}
+				{% if repair.type == 4 %}
+				운동화
+				{% endif %}
+				</td>				
+				</tr>
+				<tr>
+				<th>수선 이름</th>
+				<td>{{repair.name}}</td>
+				</tr>
+				<tr>
+				<th>수선 품목 이미지</th>
+				<td>
+				<img src="/show_image/{{repair.key}}" class="order_image">
+				</td>
+				</tr>
+				<tr>
+				<th>수선 가격</th><td>{{repair.after_price}}</td>
+				</tr>
+			</table>
+		</form>	
+		</div>
+		<div class="pagination-centered margin30">
+			<a class="btn_yellow" onclick="validation()">주문하기</a>
+		</div>
+	</div>
+</div>
+<script>
+function validation(){
+	if($("input[name=phone]").val() == ""){
+		alert("전화번호를 입력해주세요.");
+		return;
+	} 
+	if($("input[name=postcode]").val() == ""){
+		alert("우편번호를 입력해주세요.");
+		return;
+	}
+	if($("input[name=address]").val() == ""){
+		alert("주소를 입력해주세요.");
+		return;
+	}
+	if($("input[name=detail_address]").val() == ""){
+		alert("상세주소를 입력해주세요.");
+		return;
+	}
+	if(confirm("정말 주문하시겠습니까?")){
+		orderWrite.submit();
+	}
+}
+</script>
+</body>
+{% endblock %}
+</html>

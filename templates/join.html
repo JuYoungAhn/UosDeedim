@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+{% extends "menu.html" %}
+{% block content %}
+<head>
+   <meta charset="utf-8">
+   <title>Bootstrap, from Twitter</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <style>
+   		@import url("/static/css/docs.css");	
+		@import url("/static/css/bootstrap.css");
+		@import url("/static/css/bootstrap-responsive.css");
+		@import url("/static/css/menu.css");	
+		@import url("/static/css/event.css");
+		@import url("/static/css/style.css");
+		@import url("/static/css/join.css");
+	</style>
+</head>
+<script>
+</script>
+<body onload="message('{{message}}')">
+<div class="container" id="join">
+	<form action="join" method="post" name="joinForm">
+		<div class="join_form">
+			<h3>회원가입</h3>
+			<div class="mild">
+			고객님의 소중한 정보는 온라인 수선 주문시 배송을 위한 용도 외에는 사용되지 않습니다. :)
+			</div>
+			<div class="inner">
+				<strong>아이디</strong><br>
+				<input type="text" name="id">&nbsp;&nbsp; <span class="mild">아이디는 10자 이내로 입력해주세요.</span>
+				<br>
+				<strong>패스워드</strong><br>
+				<input type="password" name="password" value="{{user.password}}">&nbsp;&nbsp; <span class="mild">패스워드는 8자 이상으로 입력해주세요.</span><br>
+				<strong>패스워드 확인</strong><br>
+				<input type="password" name="password2" value="{{user.passsword}}"><br>
+				<br><br>
+				<h5>회원정보</h5>
+				<div class="user_info">
+					<strong><span class="field">이름</span></strong>
+					<input type="text" name="name" value="{{user.name}}"><br>
+					<strong><span class="field">생년월일</span></strong>
+					<input type="text" class="small_input" name="birthday_year" value="{{user.birthday_year}}"> 년
+					<select name="birthday_month" class="small_input">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+					</select>
+					 월
+					<select name="birthday_day" class="small_input">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+						<option value="13">13</option>
+						<option value="14">14</option>
+						<option value="15">15</option>
+						<option value="16">16</option>
+						<option value="17">17</option>
+						<option value="18">18</option>
+						<option value="19">19</option>
+						<option value="20">20</option>
+						<option value="21">21</option>
+						<option value="22">22</option>
+						<option value="23">23</option>
+						<option value="24">24</option>
+						<option value="25">25</option>
+						<option value="26">26</option>
+						<option value="27">27</option>
+						<option value="28">28</option>
+						<option value="29">29</option>
+						<option value="30">30</option>
+						<option value="31">31</option>
+					</select>
+					 일
+					&nbsp; <span class="mild">ex) 1992년 11월 1일</span>
+					<br>
+					<strong><span class="field">연락처</span></strong>
+					<input type="text" name="phone" value="{{user.phone}}"> <span class="mild">'-'를 빼고 입력해주세요.</span><br> 
+					<strong><span class="field">주소</span></strong><br>
+					<input type="text" id="postcode" placeholder="우편번호" name="postcode" value="{{user.postcode}}">
+					<a onclick="execDaumPostcode()" class="btn">우편번호찾기</a><br>
+					<input type="text" id="address" placeholder="주소" name="address" value="{{user.address}}">
+					<input type="text" id="address2" placeholder="상세주소" name="detail_address" value="{{user.detail_address}}">
+					<br>
+					<strong><span class="field">성별</span></strong>
+					<input type="radio" name="gender" value="남성" checked>
+				     남성
+				    <input type="radio" name="gender" value="여성">
+				     여성<br/>
+			</div>
+			<div class="submit">
+				<a class="btn_yellow" onclick="validation()">회원가입</a>	
+			</div>
+			</div>
+			<div class="margin30">
+				©Deedim Co. All rights reserved. 
+			</div>
+		</div>
+	</form>
+</div>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script>
+	function validation(){
+		if($("input[name=id]").val() == ""){
+			alert("아이디를 입력해주세요.");
+			return;
+		} 
+		if($("input[name=password]").val() == ""){
+			alert("패스워드를 입력해주세요.");
+			return;
+		}
+		if($("input[name=password2]").val() == ""){
+			alert("패스워드 확인을 입력해주세요.");
+			return;
+		}
+		if($("input[name=name]").val() == ""){
+			alert("이름을 입력해주세요.");
+			return;
+		}
+		if($("input[name=birthday_year]").val() == ""){
+			alert("생일을 입력해주세요.");
+			return;
+		}
+		if($("input[name=phone]").val() == ""){
+			alert("핸드폰 번호를 입력해주세요.");
+			return;
+		}
+		if($("input[name=address]").val() == ""){
+			alert("주소를 입력해주세요.");
+			return;
+		}
+		if($("input[name=detail_address]").val() == ""){
+			alert("상세주소를 입력해주세요.");
+			return;
+		}
+		if($("input[name=password]").val() != $("input[name=password2]").val()){
+			alert("패스워드가 다릅니다. 다시 한 번 확인해주세요.")
+			return;
+		}
+		if(confirm("정말 회원가입 하시겠습니까?")){
+			joinForm.submit();
+		}
+	}
+    function execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var fullAddr = ''; // 최종 주소 변수
+                var extraAddr = ''; // 조합형 주소 변수
+
+                // 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                    fullAddr = data.roadAddress;
+
+                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                    fullAddr = data.jibunAddress;
+                }
+
+                // 사용자가 선택한 주소가 도로명 타입일때 조합한다.
+                if(data.userSelectedType === 'R'){
+                    //법정동명이 있을 경우 추가한다.
+                    if(data.bname !== ''){
+                        extraAddr += data.bname;
+                    }
+                    // 건물명이 있을 경우 추가한다.
+                    if(data.buildingName !== ''){
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
+                    fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
+                }
+
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                document.getElementById('postcode').value = data.zonecode; //5자리 새우편번호 사용
+                document.getElementById('address').value = fullAddr;
+
+                // 커서를 상세주소 필드로 이동한다.
+                document.getElementById('address2').focus();
+            }
+        }).open();
+    }
+    function message(message){
+    	if(message != ''){
+    		alert(message);
+    	}
+    }
+</script>
+
+</body>
+{% endblock %}
+</html>

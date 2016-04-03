@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+{% extends "menu.html" %}
+{% block content %}
+<head>
+   <meta charset="utf-8">
+   <title>Bootstrap, from Twitter</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <style>
+   		@import url("/static/css/docs.css");	
+		@import url("/static/css/bootstrap.css");
+		@import url("/static/css/bootstrap-responsive.css");
+		@import url("/static/css/menu.css");	
+	    @import url("/static/css/repair.css");
+	    @import url("/static/css/style.css");
+	</style>
+</head>
+<body onload="init({{type}});changeMenuColor('repair_menu')">
+<div class="row">
+	<div class="span3 side_menu">
+		<div id="side_menu" class="bs-docs-sidebar">
+			<ul class="nav nav-list bs-docs-sidenav bs-docs-sidebar">
+			  <li class="active"><a href="repairBest"><i class="icon-heart"></i> 수선 BEST</a></li>
+			  <li><a href="#"><i class="icon-shopping-cart"></i> 수선 주문하기</a></li>
+			  <li id="type1"><a href="repair?type=1">&nbsp;&nbsp;&nbsp;&nbsp;-남성구두</a></li>
+			  <li id="type2"><a href="repair?type=2" class="repair_side dropdown-submenu">&nbsp;&nbsp;&nbsp;&nbsp;-여성구두</a></li>
+			  <li id="type3"><a href="repair?type=3">&nbsp;&nbsp;&nbsp;&nbsp;-워커수선</a></li>
+			  <li id="type4"><a href="repair?type=4">&nbsp;&nbsp;&nbsp;&nbsp;-운동화수선</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="aboutus_content" class="span9 main_content">
+		  <div class="banner">
+	  	  	<h2 class="blue">수선 BEST5</h2>
+	  	  	<h5>고객분들이 가장 많이 하시는 수선 베스트5 입니다. 주문은 좌측 메뉴에서 수선을 원하는 신발의 종류를 선택해주세요.</h5>
+	  	  </div>
+	  	  <div class="row">
+	  	  	<div class="span3 repair_item">
+	  	  		<img src="/static/image/repair_best1.png">
+	  	  		<h4>1. 내피갈이</h4>
+	  	  		<div class="mild"> 
+				겉으로 보이진 않지만 발을 위해 중요한 부분인, 구두 내피! 
+				구두 내피는 구두를 많이 신다 보면 헤질 수 밖에 없는데요. 
+				발과 직접 접하는 부분인 만큼 헤지거나 찢어졌을 때, 
+				발에도 좋지 않은 영향을 끼칠 수 있습니다. 
+				내피수선은 발이 편안할 수 있도록 
+				헤진 내피를 새로운 내피로 교체해주는 구두 수선입니다.
+	  	  		</div>
+	  	  	</div>
+	  	  	<div class="span3 repair_item">
+	  	  	<img src="/static/image/repair_best2.png">
+	  	  		<h4>2. 통굽갈이</h4>
+	  	  		<div class="mild"> 
+				뒷굽 전체를 새로운 굽으로 교체하는 수선입니다. 
+				구두를 오래 신다 보면 균일하지 않게 굽이 닳기 마련입니다. 
+				오래 방치해 두었다면 보조굽 교체만으로는 수선할 수 없는 경우가 생기는데요. 
+				이때는 전체 굽을 교체해주는 것이 바람직합니다. 통굽갈이는 구두 굽을 통째로 교체해 주는 구두 수선입니다. 
+				구두를 아껴서 오래 신는 분들의 경우에는 통굽갈이가 필요한 경우가 많습니다.
+	  	  		</div>
+	  	  	</div>
+	  	  	<div class="span3 repair_item">
+		  	  	<img src="/static/image/repair_best3.png">
+	  	  		<h4>3. 보조굽갈이</h4>
+	  	  		<div class="mild"> 
+				구두의 뒷굽 중 보조굽만 교체하는 수선입니다. 뒷굽 전체 교체보다 저렴하게 뒷굽의 닳은 부분을 교체할 수 
+				있습니다. 우리를 지탱해주는 굽은 가장 많이 마찰을 하는 부분입니다. 
+				그렇기 때문에 시간이 지나면서 굽이 닳게 되는 것은 당연한 일입니다. 
+				그런데 이 굽이 닳게 되면 어떻게 될까요? 우리 몸을 제대로 지탱해줄 수 있을까요? 
+				굽이 닳게 되면 마찰력이 줄어 곧잘 미끄러집니다. 보조굽 수선은 전체 굽을 교체하는 것 대신 
+				바닥과 마찰하는 부분만 교체하여 보다 저렴하게 구두 수선을 받을 수 있는 수선입니다.
+	  	  		</div>
+		  	 </div>
+	  	  	<div class="span3 repair_item">
+	  	 	 	<img src="/static/image/repair_best4.png">
+		  	  		<h4>4. 워커 지퍼 부착</h4>
+		  	  		<div class="mild">  
+					지퍼갈이는 구두를 보다 편하게 신고 다니기 위해 하는 구두 수선입니다.
+					워커를 신을 때 끈 때문에 구두를 신고 벗기에 불편할 경우가 있으실 것입니다. 
+					워커에 지퍼부착을 통해 신고 벗을 때 불편함을 줄여보세요.
+					덤으로 슈즈 스타일링까지 일석이조랍니다.
+		  	  		</div>
+		  	</div>
+	  	  	<div class="span3 repair_item">
+	  	  		<img src="/static/image/repair_best5.png">
+	  	  		<h4>5. 전창 갈이</h4>
+	  	  		<div class="mild"> 
+				구두 밑창 전체를 교체하는 수선입니다. 
+				구두를 많이 신고 다니시면 구두에서 바닥과 직접 마찰하는 부분인 밑창은 쉽게 닳기 마련인데요. 
+				이것을 방치해 둔다면 마찰이 줄어 미끄럽기도 할 뿐만 아니라 앞 쏠림으로 걷기에도 불편할 수 있습니다. 
+				전창갈이는 구두 밑창 전체를 갈아 문제가 생기기 전에 수습해주는 구두 수선입니다.
+	  	  		</div>
+		  	</div>
+	  	  	</div>
+	</div>
+</div>
+<script>
+function goOrder(key, user){
+	if(user == ""){
+		alert("로그인 후 이용해주세요.");
+	}
+	else {
+		location.href = "order?key="+key;
+	}
+}
+function init(type){
+	$("#type"+type).addClass("active")
+}
+</script>
+</body>
+{% endblock %}
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+{% extends "menu.html" %}
+<meta charset="utf-8">
+<title>{{title}}</title>
+</head>
+{% block content %}
+<head>
+   <meta charset="utf-8">
+   <title>이용방법</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <style>
+   		@import url("/static/css/docs.css");	
+		@import url("/static/css/bootstrap.css");
+		@import url("/static/css/bootstrap-responsive.css");
+	    @import url("/static/css/menu.css");
+	    @import url("/static/css/mypage.css");
+	</style>
+</head>
+<body onload="message('{{order_complete}}')">
+<div class="row">
+<div class="span3 side_menu">
+<div id="side_menu" class="bs-docs-sidebar">
+	<ul class="nav nav-list bs-docs-sidenav bs-docs-sidebar">
+	  <li><a href="mypage"><i class="icon-user"></i>개인정보수정</a></li>
+  	  <li class="active"><a href="userOrderList"><i class="icon-shopping-cart"></i>주문조회</a></li>
+	</ul>
+</div>
+</div>
+<div id="mypage" class="span9 main_content">
+	<h3>주문조회</h3>
+	<table class="table table-bordered">
+		<tr>
+		<th>이름</th>
+		<td class="col2">{{result.id}}</td>
+		<th>핸드폰</th>
+		<td>{{result.phone}}</td>
+		</tr>
+		<tr>
+		<th>주소</th> 
+		<td>{{result.address}}</td>
+		<th>신청일자</th>
+		<td>{{result.date}}</td>
+		</tr>
+		<tr>
+		<th>
+		수선종류
+		</th>
+		<td>
+		{%if result.repair_type == 1%}
+		남성구두
+		{% endif %}
+		{% if result.repair_type == 2 %}
+		여성구두
+		{% endif %}
+		{% if result.repair_type == 3 %}
+		워커
+		{% endif %}
+		{% if result.repair_type == 4 %}
+		운동화
+		{% endif %}
+		</td>
+		<th>수선</th>
+		<td>{{result.repair_name}}</td>
+		</tr>
+		<tr>
+		<th>가격</th>
+		<td>{{result.price}}</td>
+		<th>최종가격</th>
+		<td>
+		{% if result.final_price == None%}
+			미정
+		{% endif %}
+		{% if result.final_price != None %}
+			{{result.final_price}}
+		{% endif %}
+		</td>
+		</tr>
+		<tr>
+		<th>상태</th>
+		<td>
+		{%if result.state == 1%}
+		주문완료
+		{% endif %}
+		{% if result.state == 2 %}
+		입금대기
+		{% endif %}
+		{% if result.state == 3 %}
+		입금완료
+		{% endif %}
+		{% if result.state == 4 %}
+		물품도착
+		{% endif %}
+		{% if result.state == 5 %}
+		배송중
+		{% endif %}
+		</td>
+		</tr>
+	</table>
+</div>
+</div>
+</body>
+{% endblock %}
+</html>

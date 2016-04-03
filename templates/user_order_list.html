@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+{% extends "menu.html" %}
+<meta charset="utf-8">
+<title>{{title}}</title>
+</head>
+{% block content %}
+<head>
+   <meta charset="utf-8">
+   <title>이용방법</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <style>
+   		@import url("/static/css/docs.css");	
+		@import url("/static/css/bootstrap.css");
+		@import url("/static/css/bootstrap-responsive.css");
+	    @import url("/static/css/menu.css");
+	    @import url("/static/css/mypage.css");
+	</style>
+</head>
+<body onload="message('{{order_complete}}')">
+<div class="row">
+<div class="span3 side_menu">
+<div id="side_menu" class="bs-docs-sidebar">
+	<ul class="nav nav-list bs-docs-sidenav bs-docs-sidebar">
+	  <li><a href="mypage"><i class="icon-user"></i>개인정보수정</a></li>
+  	  <li class="active"><a href="userOrderList"><i class="icon-shopping-cart"></i>주문조회</a></li>
+	</ul>
+</div>
+</div>
+<div id="mypage" class="span9 main_content">
+	<h3>주문조회</h3>
+	<form action="userOrderDelete" method="post" name="deleteForm">
+	<input type="hidden" name="key">
+	<table class="table"> 
+		<thead>
+			<tr>
+				<th class="name">이름</th>
+				<th class="phone">연락처</th>
+				<th class="address">수선종류</th>
+				<th class="">수선이름</th>
+				<th class="state">상태</th>
+				<th class="ect">기타</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for r in result %}
+		<tr>
+			<td>{{r.id}}</td>
+			<td>{{r.phone}}</td>
+			<td>{{r.repair_type}}</td>
+			<td>{{r.repair_name}}</td>
+			<td>
+			{% if r.state == 1%}
+				주문완료
+			{% endif %}
+			{% if r.state == 2%}
+				입금대기
+			{% endif %}
+			{% if r.state == 3%}
+				입금완료
+			{% endif %}
+			{% if r.state == 4%}
+				물품도착
+			{% endif %}
+			{% if r.state == 5%}
+				배송중
+			{% endif %}
+			</td>
+			<td><a href="userOrderContent?key={{r.key}}" class="label label-inverse more">보기</a> <a onclick="deleteContent('{{r.key}}')" class="label label-red more">삭제</a></td>
+		</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+	</form>
+</div>
+</div>
+<script>
+function deleteContent(key){
+	if(confirm("정말 주문을 취소하시겠습니까?")){	
+		$("[name='key']").val(key);
+		deleteForm.submit();
+	}
+}
+function message(order_complete){
+}
+</script>
+</body>
+{% endblock %}
+</html>

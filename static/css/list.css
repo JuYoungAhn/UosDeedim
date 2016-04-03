@@ -1,0 +1,26 @@
+#list iframe {width:1170px;height:750px;}
+#banner {margin-top:30px;margin-bottom:30px;}
+#banner .kakao {float:right;padding-right:20px;padding-top:10px;padding-bottom:10px;color:white;background-color: rgba(0,0,0,.5);}
+#banner .kakao_img {width:50px;height:50px;}
+#banner .kakao_des {line-height:25px;margin-left:15px;font-size:9pt;}
+#banner .big {color:#f8d406;font-weight:bold;font-size:13pt}
+.accordion-toggle {background-color:#e4e4e4;color:#222;font-weight:bold;}
+.accordion-toggle a:ACTIVE {color:#222}
+.accordion {margin-bottom:70px; margin-left:25px;}
+.sub_banner {margin-left:20px;margin-top:30px;}
+.faq {margin-bottom:60px;}
+.catch_img {margin-bottom:50px;}
+.catch_img img {width:300px;}
+
+@media (max-width: 767px)  {
+	#banner .kakao {display:inline-block;margin-top:30px}
+	#banner .kakao_img_div{width:50px;float:left;margin-right:10px;margin-left:20px;}
+	#banner .kakao_des {}
+	#list {margin-left:20px;}
+	#list iframe {width:600px;height:700px;}
+	.accordion {margin-bottom:70px; margin-left:-5px;}	
+}
+
+@media (max-width: 480px)  {
+	#list iframe {width:330px;height:700px;}	
+}

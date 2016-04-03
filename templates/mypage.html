@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+{% extends "menu.html" %}
+<meta charset="utf-8">
+<title>{{title}}</title>
+</head>
+{% block content %}
+<head>
+   <meta charset="utf-8">
+   <title>이용방법</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <style>
+   		@import url("/static/css/docs.css");	
+		@import url("/static/css/bootstrap.css");
+		@import url("/static/css/bootstrap-responsive.css");
+	    @import url("/static/css/menu.css");
+	    @import url("/static/css/mypage.css");
+	</style>
+</head>
+<body onload="message('{{message}}')">
+<div class="row">
+<div class="span3 side_menu">
+<div id="side_menu" class="bs-docs-sidebar">
+	<ul class="nav nav-list bs-docs-sidenav bs-docs-sidebar">
+	  <li class="active"><a href="mypage"><i class="icon-user"></i>개인정보수정</a></li>
+  	  <li><a href="userOrderList"><i class="icon-shopping-cart"></i>주문조회</a></li>
+	</ul>
+</div>
+</div>
+<div id="mypage" class="span9 main_content">
+	<div class="banner">
+		<h3>개인정보수정</h3>
+	</div>
+	<form action="mypage" method="post" name="userUpdateForm">
+	<input type="hidden" value="{{user.key}}" name="key">
+	<table class="table table-bordered">
+		<tr>
+		<th>아이디</th>
+		<td>{{user.id}}</td>
+		</tr>
+		<tr>
+		<th>현재 패스워드</th>
+		<td>
+		<input type="password" name="password" value="{{user.password}}">
+		<span class="mild"> 현재  패스워드와 바꿀 패스워드는 패스워드를 변경하는 경우에만 입력해주세요.</span>
+		</td>
+		</tr>
+		<tr>
+		<th>바꿀 패스워드</th>
+		<td><input type="password" name="password2"></td>
+		</tr>
+		<tr>
+		<th>핸드폰</th>
+		<td>
+		<input type="text" name="phone" value="{{user.phone}}">
+		<span class="mild"> 핸드폰 번호는 '-'를 빼고 입력해주세요.</span>
+		</td>
+		</tr>
+		<tr>
+		<th>주소</th> 
+		<td>
+		<input type="text" id="postcode" name="postcode" value="{{user.postcode}}"> <a onclick="execDaumPostcode()" class="btn">우편번호찾기</a><br>
+		<input type="text" id="address" name="address" value="{{user.address}}"> <input type="text" id="address2" name="detail_address" value="{{user.detail_address}}"></td>
+		</tr>
+	</table>
+	</form>
+	<div class="pagination-centered margin30">
+		<span><a class="btn_yellow" onclick="validation()">수정</a></span>
+	</div>
+</div>
+</div>
+<script>
+function message(message){
+	if(message == '1'){
+		alert("현재 패스워드가 다릅니다.");
+	}
+}
+function validation(){
+	if(confirm("개인정보를 수정하시겠습니까?")){
+		if($("input[name=phone]").val() == ""){
+			alert("전화번호를 입력해주세요.");
+			return;
+		} 
+		if($("input[name=postcode]").val() == ""){
+			alert("우편번호를 입력해주세요.");
+			return;
+		}
+		if($("input[name=address]").val() == ""){
+			alert("주소를 입력해주세요.");
+			return;
+		}
+		if($("input[name=detail_address]").val() == ""){
+			alert("상세주소를 입력해주세요.");
+			return;
+		}
+		userUpdateForm.submit();
+	}
+}
+function execDaumPostcode() {
+    new daum.Postcode({
+        oncomplete: function(data) {
+            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+            // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+            var fullAddr = ''; // 최종 주소 변수
+            var extraAddr = ''; // 조합형 주소 변수
+
+            // 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+            if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                fullAddr = data.roadAddress;
+
+            } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                fullAddr = data.jibunAddress;
+            }
+
+            // 사용자가 선택한 주소가 도로명 타입일때 조합한다.
+            if(data.userSelectedType === 'R'){
+                //법정동명이 있을 경우 추가한다.
+                if(data.bname !== ''){
+                    extraAddr += data.bname;
+                }
+                // 건물명이 있을 경우 추가한다.
+                if(data.buildingName !== ''){
+                    extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                }
+                // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
+                fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
+            }
+
+            // 우편번호와 주소 정보를 해당 필드에 넣는다.
+            document.getElementById('postcode').value = data.zonecode; //5자리 새우편번호 사용
+            document.getElementById('address').value = fullAddr;
+
+            // 커서를 상세주소 필드로 이동한다.
+            document.getElementById('address2').focus();
+        }
+    }).open();
+}
+</script>
+</body>
+{% endblock %}
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+{% extends "menu.html" %}
+<meta charset="utf-8">
+<title>{{title}}</title>
+</head>
+<body>
+{% block content %}
+<style>
+body .container {width:980px}
+</style>
+<div class="container" id="banner">
+<h3>수선 상품 업로드</h3>
+</div>
+<div class="container" id="product_write">
+	<form action="/orderWrite" method="post" name="productWrite" enctype='multipart/form-data'>
+	<table class="table table-bordered">
+		<tr>
+		<th>수선명</th>
+		<td><input type="text" name="name"></td>
+		</tr>
+		<tr>
+		<th>이전가격</th> 
+		<td><input type="text" name="before_price"></td>
+		</tr>
+		<tr>
+		<th>나중가격</th> 
+		<td><input type="text" name="after_price"></td>
+		</tr>
+		<tr>
+		<th>타입</th>
+		<td>
+			<select name="type">
+			<option value="1">남성구두</option>
+			<option value="2">여성구두</option>
+			<option value="3">워커</option>
+			<option value="4">운동화</option>
+			</select>
+		</td>
+		</tr>
+		<tr>
+		<th>설명</th>
+		<td><textarea name="des"></textarea></td>
+		</tr>
+		<tr>
+		<th>대표 이미지</th>
+		<td><input type="file" name="image"></td>
+		</tr>
+		<tr>
+		<td colspan="2"><div class="pagination-centered"><input type="submit" value="등록"></div></td>
+		</tr>
+	</table>
+	</form>
+</div>
+{% endblock %}
+</body>
+</html>

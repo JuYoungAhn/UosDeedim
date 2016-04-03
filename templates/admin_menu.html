@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+{% extends "menu.html" %}
+{% block content %}
+<head>
+<meta charset="utf-8">
+<title>{{title}}</title>
+<style>
+@import url("/static/css/event.css");
+#admin_menu {height:500px;}	
+</style>
+</head>
+<body>
+<div class="container" id="admin_menu">
+	<h2>관리자 메뉴</h2>
+	<a href="productWrite" class="btn">구두 판매 업로드</a>
+	<a href="eventList" class="btn">이벤트 관리</a>
+	<a href="orderItemList" class="btn">수선 품목 리스트</a>
+	<a href="orderWrite" class="btn">수선 품목 업로드</a>
+	<a href="orderList" class="btn">주문 관리</a>
+	<a href="userManage" class="btn">유저 관리</a>
+</div>
+{% endblock %}
+</body>
+</html>

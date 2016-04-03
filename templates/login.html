@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+{% extends "menu.html" %}
+<title>{{title}}</title>
+{% block content %}
+<body onload="changeMenuColor('faq_menu');message('{{message}}')">
+<head>
+   <meta charset="utf-8">
+   <title>이용방법</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <style>
+   		@import url("/static/css/docs.css");	
+		@import url("/static/css/bootstrap.css");
+		@import url("/static/css/bootstrap-responsive.css");
+	    @import url("/static/css/menu.css");	
+	    body {background-color:#f6f6f6}
+		#banner {width:500px;margin:0 auto;}
+		.login_form {width:500px;height:300px;border:1px solid #e4e4e4;padding-left:30px;padding-top:30px;background-color:white;margin-bottom:30px;}
+	</style>
+</head>
+<div class="container" id="banner">
+	<form action="/login" method="post" name="loginForm">
+	<div class="login_form">
+		<h3>로그인</h3>
+		<div>
+			<strong>아이디</strong><br>
+			<input type="text" name="id"><br>
+			<strong>패스워드</strong><br>
+			<input type="password" name="password"><br><br>
+			<a class="btn_yellow" onclick="validation()">로그인</a>	
+		</div>
+		<div class="margin30">
+			©Deedim Co. All rights reserved. 
+		</div>
+	</div>
+	</form>
+</div>
+<script>
+function message(message){
+	if(message != ''){
+		alert(message);
+	}
+}
+function validation(){
+	if($("[name=id]").val() == ""){
+		alert("아이디를 입력해주세요.");
+		return;
+	}
+	if($("[name=password]").val() == ""){
+		alert("패스워드를 입력해주세요.");
+		return; 
+	}
+	loginForm.submit();
+}
+</script>
+{% endblock %}
+</body>
+</html>
