@@ -2,14 +2,30 @@
 body {color:#222}
 body .navbar {font-size:14px;}
 body {font-size:11pt;}
+.cally_logo {width:120px;height:70px;}
 .navbar {width:100%;text-align:center;}
 .navbar-container {width:1140px;margin:0 auto;}
 .navbar li {line-height:25px;padding-top:0;height:47px;}
-.navbar .standard_li {width:120px;line-height:40px;font-size:11pt;}
-.navbar .navbar-inner .logo {font-weight:bold;color:#f8d406;padding-left:5px;line-height:35px;font-size:17pt;}
-.navbar .navbar-inner .logo img {margin-right:10px;height:40px;}
+.navbar .standard_li {width:120px;line-height:40px;font-size:11pt;height:60px;}
+.navbar .nav .user_li a {color:black;height:20px;padding:4px;margin-top:20px;font-size:12px;margin-left:10px;}
+.mobile {display:none}
+.navbar .navbar-inner .logo {font-weight:bold;color:#f8d406;line-height:35px;font-size:17pt;padding-top:0;padding-bottom:0}
+.navbar .navbar-inner .logo img.cally_logo {margin-right:0px;height:60px;width:84px;padding-bottom:0}
 .nav img {width:45px;height:20px;}
+.nav .dropdown-menu2 {display:none;position:static;list-style:none;margin:0;width:120px;border-radius:0;box-shadow:0;padding:0;z-index:1000;background-color:#222;opacity:1;color:white}
+.nav .dropdown-menu2 li {list-style:none;width:120px;display:inline-block;color:white;}
+.nav .dropdown-menu2 li a {height:40px;color:white;line-height:40px;padding:0}
+.nav .dropdown-menu2 li a:hover {text-decoration:underline;}
 .nav .navbar-inner .brand {color:#f8d406}
+.navbar .logout_li {color:white;width:50px;padding-top:10px;}
+.navbar .logout_li .ment{margin-right:10px;}
+.navbar .logout_li .btn {color:#222;height:15px;}
+.login_info {color:white;padding-top:10px;}
+
+.admin_menu {color:white;cursor:default;}
+.admin_menu:HOVER {color:white;}
+.person_icon {width:24px;height:24px;}
+
 .navbar-inverse .navbar-inner {
   background-color: #222;
   background-image: -moz-linear-gradient(top, #222, #222);
@@ -24,7 +40,7 @@ body {font-size:11pt;}
 #side_menu {background-color:#222;margin-top:-20px;font-size:13px;opacity:0.9;}
 #side_menu {margin-left:20px;}
 #side_menu li {line-height:25px;}
-#side_menu a {color:#222}
+#side_menu a {color:#222;padding:8px 12px;}
 #side_menu .active a {color:#ffffff;background-color:#1b1b1b}
 
 .footer {color:white;background-color: rgba(0,0,0,.6);font-size:14px;padding-left:20px;padding-top:20px;padding-bottom:20px;font-size:12px;}
@@ -34,10 +50,13 @@ body {font-size:11pt;}
 .footer .footer_right {float:right}
 @media (max-width: 767px)  {
 	body {padding:0}
+	.nav .dropdown2 {display:none;}
 	.navbar {width:100%;text-align:center;font-weight:bold;}
 	.navbar .standard_li {width:100%;line-height:25px;text-align:left;}
 	.bs-docs-sidenav > li > a {width:220px;}
 	#side_menu {background-color:#1b1b1b;margin-top:-20px;font-size:13px;opacity:0.9;margin-bottom:30px;width:100%;}
 	.footer {font-size:10px;padding-left:10px;}
 	.footer .footer_right {float:left}
+	.mobile {display:block;}
 }
+

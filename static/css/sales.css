@@ -27,6 +27,7 @@
 #sales .catch_font {font-size:14pt;font-weight:bold;}
 #sales .catch_span {padding:10px;margin-left:0;}
 
+
 @media (max-width: 767px)  {
 	#sales .kakao {display:inline-block;margin-top:30px}
 	#sales .kakao_img_div{width:50px;float:left;margin-right:10px;margin-left:20px;}

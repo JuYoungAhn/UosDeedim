@@ -1,7 +1,7 @@
-html {padding-bottom:0;font-family: NanumBarunGothic,"NanumBarunGothic","돋움",Dotum,Arial,Dotum,Arial,Verdana,sans-serif}
-.catch_small {color:#f8d406;font-weight:bold;font-size:13pt}
+html {padding-bottom:0; font-family: Nanum Barun Gothic,"나눔고딕", NanumGothic, Malgun Gothic, "돋움", Dotum, AppleGothic, sans-serif !important;}
+.catch_small {color:#f8d406;font-weight:bold;font-size:13pt;}
 .catch_small2 {color:#222;font-weight:bold;font-size:13pt}
-.catch_font2 {font-size:15pt;font-weight:bold;color:#222}
+.catch_font2 {font-size:15pt;font-weight:bold;color:#222;font-family: Nanum Barun Gothic,"나눔고딕", NanumGothic, Malgun Gothic, "돋움", Dotum, AppleGothic, sans-serif !important;}
 .catch_font3{font-size:13pt;font-weight:bold;color:#222}
 .catch_font {font-size:15pt;font-weight:bold;color:#f8d406;}
 .margin30 {margin-top:30px;margin-bottom:30px;}
@@ -9,6 +9,26 @@ html {padding-bottom:0;font-family: NanumBarunGothic,"NanumBarunGothic","돋움"
 .margin20 {margin-top:20px;margin-bottom:20px;}
 .margin50 {margin:50px;}
 .weeker {color:#666}
+.mild {color:#777;font-size:9pt;}
+.center {text-align:center}
+.nodecolink a {color:#222}
+.yellow {color:#fdd200;}
+.btn_yellow {
+	background-color: #fdd200;
+	color:#ffffff;
+	padding:12px 25px;
+	-webkit-border-radius:4px;
+	-moz-border-radius :4px;
+	border-radius:4px;
+	font-size:13px;
+}
+.btn_yellow:HOVER {
+	color:#ffffff
+}
+.blue {
+	color:#0096d6;
+}
+a {cursor:pointer}
 .btn_new{border:2px solid #ffffff; background-color:rgba(0, 0, 0, 0);padding:12px 25px;color:#ffffff;font-size:11pt;
 -webkit-border-radius:4px;
 -moz-border-radius :4px;

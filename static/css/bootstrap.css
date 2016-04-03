@@ -230,7 +230,6 @@ body {
 }
 
 a {
-  color: #0088cc;
   text-decoration: none;
 }
 
@@ -2281,7 +2280,7 @@ table th[class*="span"],
   *margin-right: .3em;
   line-height: 14px;
   vertical-align: text-top;
-  background-image: url("../img/glyphicons-halflings.png");
+  background-image: url("../image/glyphicons-halflings.png");
   background-position: 14px 14px;
   background-repeat: no-repeat;
 }
@@ -2305,7 +2304,7 @@ table th[class*="span"],
 .dropdown-submenu:focus > a > [class^="icon-"],
 .dropdown-submenu:hover > a > [class*=" icon-"],
 .dropdown-submenu:focus > a > [class*=" icon-"] {
-  background-image: url("../img/glyphicons-halflings-white.png");
+  background-image: url("../image/glyphicons-halflings-white.png");
 }
 
 .icon-glass {
@@ -2959,14 +2958,14 @@ table th[class*="span"],
 .dropdown-submenu:focus > a {
   color: #ffffff;
   text-decoration: none;
-  background-color: #0081c2;
-  background-image: -moz-linear-gradient(top, #0088cc, #0077b3);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0077b3));
-  background-image: -webkit-linear-gradient(top, #0088cc, #0077b3);
-  background-image: -o-linear-gradient(top, #0088cc, #0077b3);
-  background-image: linear-gradient(to bottom, #0088cc, #0077b3);
+  background-color: #222;
+  background-image: -moz-linear-gradient(top, #222, #222);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#222), to(#222));
+  background-image: -webkit-linear-gradient(top, #222, #222);
+  background-image: -o-linear-gradient(top, #222, #222);
+  background-image: linear-gradient(to bottom, #222, #222);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0077b3', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#222', endColorstr='#222', GradientType=0);
 }
 
 .dropdown-menu > .active > a,
@@ -2974,15 +2973,15 @@ table th[class*="span"],
 .dropdown-menu > .active > a:focus {
   color: #ffffff;
   text-decoration: none;
-  background-color: #0081c2;
-  background-image: -moz-linear-gradient(top, #0088cc, #0077b3);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0077b3));
-  background-image: -webkit-linear-gradient(top, #0088cc, #0077b3);
-  background-image: -o-linear-gradient(top, #0088cc, #0077b3);
-  background-image: linear-gradient(to bottom, #0088cc, #0077b3);
+  background-color: #222;
+  background-image: -moz-linear-gradient(top, #222, #222);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#222), to(#222));
+  background-image: -webkit-linear-gradient(top, #222, #222);
+  background-image: -o-linear-gradient(top, #222, #222);
+  background-image: linear-gradient(to bottom, #222, #222);
   background-repeat: repeat-x;
   outline: 0;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0077b3', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#222', endColorstr='#222', GradientType=0);
 }
 
 .dropdown-menu > .disabled > a,
@@ -4101,7 +4100,7 @@ input[type="submit"].btn.btn-mini {
 .nav-pills > .active > a:hover,
 .nav-pills > .active > a:focus {
   color: #ffffff;
-  background-color: #0088cc;
+  background-color: #222;
 }
 
 .nav-stacked > li {
@@ -4586,10 +4585,10 @@ input[type="submit"].btn.btn-mini {
   float: left;
 }
 
-.navbar .nav > li > a {
+.navbar .nav  li  a {
   float: none;
   padding: 10px 15px 10px;
-  color: #777777;
+  color: white;
   text-decoration: none;
   text-shadow: 0 1px 0 #ffffff;
 }
@@ -4598,16 +4597,16 @@ input[type="submit"].btn.btn-mini {
   margin-top: 8px;
 }
 
-.navbar .nav > li > a:focus,
-.navbar .nav > li > a:hover {
-  color: #333333;
+.navbar .nav  li  a:focus,
+.navbar .nav  li  a:hover {
+  color: white;
   text-decoration: none;
   background-color: transparent;
 }
 
-.navbar .nav > .active > a,
-.navbar .nav > .active > a:hover,
-.navbar .nav > .active > a:focus {
+.navbar .nav  .active  a,
+.navbar .nav  .active  a:hover,
+.navbar .nav  .active  a:focus {
   color: #555555;
   text-decoration: none;
   background-color: #e5e5e5;

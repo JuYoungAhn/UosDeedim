@@ -3,16 +3,20 @@
 <head>
 <Meta Http-Equiv="Content-Type" Content="text/html; charset=utf-8"> 
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" > <!-- Ajax Ex10에서 오류나는것 때문에 -->
+<meta name="naver-site-verification" content="db4355c6413b542fd874ed1a815c6c26882a912c"/>
+<meta name="description" content="관악구 구두, 운동화 수선 전문 업체 디딤입니다.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{title}}</title>
+<title>디딤</title>
 <style>
-@import url(https://cdn.rawgit.com/openhiun/hangul/14c0f6faa2941116bb53001d6a7dcd5e82300c3f/nanumbarungothic.css);
+@import url(http://cdn.jsdelivr.net/font-nanum/1.0/nanumbarungothic/nanumbarungothic.css);
 @import url("/static/css/bootstrap.css");
 @import url("/static/css/bootstrap-responsive.css");
 @import url("/static/css/menu.css");
 @import url("/static/css/style.css");
 </style>
 </head>
+<div class="">
+</div>
 <div class="navbar navbar-inverse">
      <div class="navbar-inner">
        <div class="container">
@@ -21,22 +25,39 @@
            <span class="icon-bar"></span>
            <span class="icon-bar"></span>
          </button>
-         <a class="brand logo" href="/"><img src="/static/image/foot.png">디딤</a>
+         <a class="brand logo" href="/"><img src="/static/image/cally2.png" class="cally_logo"></a>
          <div class="nav-collapse collapse">
            <ul class="nav">
    			<li class="standard_li"><a href="/aboutUs" class="about_menu">디딤소개</a>
    			<li class="standard_li"><a href="/description" class="description_menu">이용방법</a></li>
-			<li class="standard_li"><a href="/sales" class="sales_menu">구두판매</a></li>	
-   			<li class="standard_li"><a href="/boardList?menu_id=1" class="list_menu">견적문의</a></li>
-   			<li class="standard_li"><a href="/boardList?menu_id=2" class="review_menu">이용후기</a></li>
-   			<li class="standard_li"><a href="/boardList?menu_id=3" class="faq_menu">FAQ</a></li>
-   			<li class="standard_li"><a href="/event" class="event_menu">이벤트</a></li>
-   			<!--  
-   			<li class="icon_li"><a href="/event" class="event_menu"><img src="/static/image/facebook_tr.png"></a></li>
-   			<li class="icon_li"><a href="/event" class="event_menu"><img src="/static/image/blogger_tr.png"></a></li>
-   			-->
+   			<li class="standard_li dropdown2">
+				<a class="dropdown-toggle board_menu" data-toggle="dropdown" href="#">게시판</a>
+				<ul class="dropdown-menu2">
+					<li class="sub_li"><a href="/boardList?menu_id=1" class="list_menu">견적문의</a></li>
+		   			<li class="sub_li"><a href="/boardList?menu_id=2" class="usecase_menu">수선사례</a></li>
+		   			<li class="sub_li"><a href="/boardList?menu_id=3" class="review_menu">이용후기</a></li>
+		   			<li class="sub_li"><a href="/boardList?menu_id=4" class="share_menu">구두나눔</a></li>
+		   			<li class="sub_li"><a href="#" onclick="alert('준비중입니다.')">매거진</a></li>
+		   			<li class="sub_li"><a href="/faq" class="faq_menu">FAQ</a></li>
+				</ul>
+			</li>	
+   			<li class="standard_li"><a href="/repairBest" class="repair_menu">구두수선</a></li>
+			<li class="standard_li mobile"><a href="/boardList?menu_id=1" class="list_menu">견적문의</a></li>
+   			<li class="standard_li mobile"><a href="/boardList?menu_id=2" class="usecase_menu">수선사례</a></li>
+   			<li class="standard_li mobile"><a href="/boardList?menu_id=3" class="review_menu">이용후기</a></li>
+   			<li class="standard_li"><a href="/sales" class="sales_menu">구두판매</a></li>	
+   			<li class="standard_li"><a href="/event" class="event_menu">구두나눔</a></li>
    		</ul> 
          </div><!--/.nav-collapse -->
+         <div class="login_info">
+         {%if user == None%}
+  			<span><a class="btn" href="/join">회원가입</a></span>
+  			<span><a class="btn" href="/login">로그인</a></span>
+		{%else%}
+			<span class="ment">{{user.id}} / {{user.name}}</span><br>
+			<span><a href="/mypage">mypage /</a> <a href="/logout">로그아웃</a></span>
+		{%endif%}
+         </div>
        </div>
      </div>
    </div>
@@ -52,18 +73,28 @@
 		 	<div class="span">
 		 	<strong>상호명</strong><span class="gray"> : 디딤</span> &nbsp;&nbsp;<strong>대표자</strong><span class="gray"> : 김종수</span>&nbsp;&nbsp; <strong>전화</strong><span class="gray"> : 010-3892-1902</span>
 		 	<br><strong>주소</strong><span class="gray">  : 서울시 관악구 은천동 951-2번지</span>&nbsp;&nbsp;<strong>업무시간</strong><span class="gray"> : 월~토 09:00~18:00 </span>
+		 	<br><strong>사업자번호</strong><span class="gray"> : 119-06-95574</span>
 		 	</div>
 		 	<div class="span footer_right">
-		 	<a href="http://blog.naver.com/kjzz5207"><img src="/static/image/naver_icon.png" class="menu_icon"></a>&nbsp;&nbsp;
-   			<a href="#" onclick="alert('준비중입니다.')"><img src="/static/image/facebook_icon.png" class="menu_icon"></a>&nbsp;&nbsp;
+		 	<a href="http://blog.naver.com/deedim_shoes"><img src="/static/image/naver_icon.png" class="menu_icon"></a>&nbsp;&nbsp;
+   			<a href="https://www.facebook.com/디딤-532850226877912/?fref=ts"><img src="/static/image/facebook_icon.png" class="menu_icon"></a>&nbsp;&nbsp;
    			<a href="http://uosenactus.weebly.com/"><img src="/static/image/enactus_logo.png" class="menu_icon_big"></a>
    			<br>
-		 	Copyright (c) 2015 All Rights Reserved.
+		 	Copyright (c) 2015 All Rights Res<a class="admin_menu" onclick="goAdmin()">e</a>rved.
 		 	</div>
 	 	</div>
 	 </div>
  </div>
 <script type="text/javascript" src="static/js/jquery-1.7.min.js"></script>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script type='text/javascript' src='static/js/bootstrap.js'></script>
 <script type='text/javascript' src='static/js/test.js'></script>
+<script>
+	$(".admin_menu").mouseover(function(){
+		$(this).css("text-decoration", "none");
+	});
+	function goAdmin(){
+		location.href ="adminPassword"
+	}
+</script>
 </html>

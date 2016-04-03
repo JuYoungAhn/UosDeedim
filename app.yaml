@@ -1,7 +1,8 @@
 application: uosdeedim
 version: 1
-runtime: python
+runtime: python27
 api_version: 1
+threadsafe : true
 
 handlers:
 - url: /static
@@ -14,4 +15,4 @@ handlers:
   static_dir: static/js
     
 - url: /.*
-  script: helloworld.py
+  script: helloworld.application

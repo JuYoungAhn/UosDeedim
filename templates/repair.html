@@ -1,10 +1,79 @@
 <!DOCTYPE html>
 <html lang="ko">
+{% extends "menu.html" %}
+{% block content %}
 <head>
-<meta charset="utf-8">
-<title>{{title}}</title>
+   <meta charset="utf-8">
+   <title>Bootstrap, from Twitter</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <style>
+   		@import url("/static/css/docs.css");	
+		@import url("/static/css/bootstrap.css");
+		@import url("/static/css/bootstrap-responsive.css");
+		@import url("/static/css/menu.css");	
+	    @import url("/static/css/repair.css");
+	    @import url("/static/css/style.css");
+	</style>
 </head>
-<body>
-<img src='/image/{{image_key}}'>
+<body onload="init({{type}});changeMenuColor('repair_menu')">
+<div class="row">
+	<div class="span3 side_menu">
+		<div id="side_menu" class="bs-docs-sidebar">
+			<ul class="nav nav-list bs-docs-sidenav bs-docs-sidebar">
+			  <li><a href="repairBest"><i class="icon-heart"></i> 수선 BEST</a></li>
+			  <li><a href="#"><i class="icon-shopping-cart"></i> 수선 주문하기</a></li>
+			  <li id="type1"><a href="repair?type=1">&nbsp;&nbsp;&nbsp;&nbsp;-남성구두</a></li>
+			  <li id="type2"><a href="repair?type=2" class="repair_side dropdown-submenu">&nbsp;&nbsp;&nbsp;&nbsp;-여성구두</a></li>
+			  <li id="type3"><a href="repair?type=3">&nbsp;&nbsp;&nbsp;&nbsp;-워커수선</a></li>
+			  <li id="type4"><a href="repair?type=4">&nbsp;&nbsp;&nbsp;&nbsp;-운동화수선</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="aboutus_content" class="span9 main_content">
+		<h3 class="blue">
+		{{type_name}}
+		</h3>
+		<div>
+			total : {{count}} 품목
+		</div>
+		<div>
+			<hr>
+		</div>
+		{% for r in result %}
+			<div class="row repair_div">
+			<div class="span3">
+				<div class="repair_img"><img src="/show_image/{{r.key}}"></div>
+			</div>
+			<div class="span6">
+				<h4>{{r.name}}</h4>
+					<span class="through">{{r.before_price}}</span>-><span>{{r.after_price}}</span>
+				<br>
+				<span class="des">
+				{{r.des}}
+				</span>
+				<br><br>
+				<span>
+				<a class="btn cart_icon" onclick="alert('장바구니 기능은 준비중이에요!')"><img src="/static/image/cart.png"></a> 
+				<a class="btn_yellow" onclick="goOrder('{{r.key}}', '{{user.id}}')">주문하기</a></span>
+				<br><br>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+<script>
+function goOrder(key, user){
+	if(user == ""){
+		alert("로그인 후 이용해주세요.");
+	}
+	else {
+		location.href = "order?key="+key;
+	}
+}
+function init(type){
+	$("#type"+type).addClass("active")
+}
+</script>
 </body>
+{% endblock %}
 </html>

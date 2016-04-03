@@ -13,14 +13,29 @@ $(document).ready(function() {
 	$("#side_menu li").mouseout(function(){
 		$(this).css("font-weight", "normal")
 	});
-	$(".navbar .navbar-inner  .standard_li a").mouseover(function(){
+	$(".navbar .navbar-inner  .standard_li > a").mouseover(function(){
 		$(this).css("background-color", "#000")
 		$(this).css("color", "#fff")
 	});
-	$(".navbar .navbar-inner  .standard_li a").mouseout(function(){
+	$(".navbar .navbar-inner  .standard_li > a").mouseout(function(){
 		if($(this).attr("class") != "active")
 			$(this).css("background-color", "#222");
 	});
+	$(".dropdown2").mouseover(function(){
+		$(".dropdown-menu2").show()
+	});
+	$(".dropdown2").mouseout(function(){
+		$(".dropdown-menu2").hide()
+	});
+	$(".dropdown2 li a").mouseover(function(){
+		$(this).css("text-decoration", "underline")
+	});
+	$(".dropdown2 li a").mouseout(function(){
+		$(this).css("text-decoration", "none")
+	});
+	$(".dropdown-submenu").click(function(){
+		$(".fee_sub").show();
+	})
 });
 function getProducts(offset){
 	$("#more").remove();
@@ -37,6 +52,12 @@ function getProducts(offset){
 function deleteProduct(date){
 	if(confirm("삭제하시겠습니까?")){	
 		$("[name='key']").val(date);
+		deleteForm.submit();
+	}
+}
+function deleteContent(key){
+	if(confirm("삭제하시겠습니까?")){	
+		$("[name='key']").val(key);
 		deleteForm.submit();
 	}
 }
