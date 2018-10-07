@@ -82,6 +82,10 @@ class Product(db.Model):
 
 productCount = 8
 
+class Cart(db.Model):
+ id = db.StringProperty()
+ item_key = db.StringProperty()
+
 class BaseHandler(webapp2.RequestHandler):
     title = 'Deedim'
     def dispatch(self):

@@ -18,6 +18,8 @@ section#project_story .news_small {font-size:10pt;}
 section#project_story .news_big {font-size:12pt;}
 section#project_story .latest {margin-top:30px;}
 
+#aboutus_content .paragraph {font-size:11pt}
+
 section#project_story .logo {width:200px;}
 .main_content {margin-bottom:50px;line-height:25px;margin:10px;}
 .main_content li {line-height:25px;}
@@ -27,7 +29,8 @@ section#project_story .logo {width:200px;}
 .paragraph {font-size:12pt;}
 .galleria{height: 400px; background: #000 }
 ul{list-style:none;margin:0;padding:0;}
-
+.slide_span {margin-left:0px;margin-bottom:20px;}
+.navermap {width:50px;height:50px;}
 
 @media (max-width: 767px)  {
 	#aboutus_content {font-size:10pt;}
