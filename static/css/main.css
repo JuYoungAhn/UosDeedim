@@ -1,4 +1,4 @@
-/* setup */ 
+/* setup */
 .service {}
 .service_div .over {position:absolute;height:210px; background-color:rgba(0,0,0,.6)}
 header {margin-top:-20px;}
@@ -22,7 +22,7 @@ header {margin-top:-20px;}
 #main .repair_tag {width:50%;height:20px;background-color: rgba(0,0,0,.6);color:white;font-size:12pt;position:relative;top:-20px;text-align:center}
 .main_photo {z-index:1;border-top:2px solid black;height:590px;margin-top:-20px;background: url("/static/image/main_bg.jpg");width:100%}
 .main_photo .catchphrase {padding:15px;line-height:25px;background-color: rgba(0,0,0,.6);margin-left:0;height:560px;}
-.main_photo .catchphrase_text {margin-left:14%;margin-top:8%}
+.main_photo .catchphrase_text {margin-left:14%;margin-top:4%}
 .main_photo .catchphrase p{color:white;font-size:13pt;}
 .main_photo .catchphrase h1 {color:#f8d406;font-weight:bold;line-height:55px;}
 .main_photo .catchphrase .big {margin-bottom:30px;font-weight:bold;}
@@ -42,6 +42,7 @@ header {margin-top:-20px;}
 #main .news_catch {font-size:16pt;background-color:#515356;color:white;padding:5px;}
 #main .news_small {}
 #main .news_big {font-size:14pt;}
+#main .move{width:300px;float:right;margin-right:10px;text-align:center;color:white;font-size:11pt;}
 
 body {padding-bottom:0;}
 
@@ -49,6 +50,8 @@ body {padding-bottom:0;}
 		#main .service {margin:0 auto;width:100%}
 		#main .service_div{width:215px;height:200px;margin-bottom:10px;background-color:white;padding:1.5%;padding-top:0px;}
 		#main .service_div img {width:100%;height:210px;}
+		#main .move{width:300px;float:right;margin-right:10px;text-align:center;color:white;font-size:11pt;}
+
 }
 @media (max-width: 767px)  {
 	body {padding:0}
@@ -58,6 +61,7 @@ body {padding-bottom:0;}
 	#main .why_div {width:100%;}
 	#main .main_photo .catchphrase h1 {color:#f8d406;font-weight:bold;font-size:16pt;line-height:30px;}
 	#main .main_photo .catchphrase p {font-size:11pt;line-height:25px;}
+	#main .move{width:300px;float:right;margin-right:10px;text-align:center;color:white;font-size:11pt;}
 }
 @media (max-width: 480px)  {
 	#main .main_photo {height:400px;}
